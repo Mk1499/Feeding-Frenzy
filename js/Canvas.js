@@ -6,7 +6,7 @@ let Canvas = function(id){
     this.create = function(){
         this.canvas = document.getElementById(id);
         this.canvas.height = window.innerHeight;
-        this.canvas.width = 700;
+        this.canvas.width = window.innerWidth;
         this.context = this.canvas.getContext("2d");
 
     };
