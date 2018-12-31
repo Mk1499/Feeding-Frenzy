@@ -44,6 +44,12 @@ Fish.prototype.moveFishes = function () {
         this.x += this.speedX;
     }
 
-    this.element.style.left = this.x + "px";
+    if(this.direction === "left" && (parseInt(this.element.style.left) + this.width)+200 <= 0 )
+      this.direction = "right" ; 
+    
+  if(this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth )
+      this.direction = "left" ; 
    
+      this.element.style.left = this.x + "px";
+
 }
