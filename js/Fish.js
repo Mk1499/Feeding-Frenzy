@@ -5,10 +5,10 @@ let Fish = function (x, y, imgSrc, weight, direction) {
     this.y = y;
     this.width = 100;
     this.height = 60;
-    this.imgSrc = imgSrc;
+    this.imgSrc = "./images/" + imgSrc;
     this.direction = direction;
     this.weight = weight;
-    this.speedX = 4;
+    this.speedX = 3;
     this.speedY = 0;
     this.element;
     
@@ -16,12 +16,13 @@ let Fish = function (x, y, imgSrc, weight, direction) {
 };
 
 Fish.prototype.createFish = function () {
-    this.element = document.createElement("IMG");
+
+    this.element = document.createElement("img");
     this.element.src = this.imgSrc;
     this.element.style.position = "absolute";
-    //f.style.background = "red" ; 
     this.element.height = this.height;
     this.element.width = this.width;
+
     if (this.direction === "left")
         this.x = window.innerWidth + this.width;
     else if (this.direction === "right")
@@ -32,7 +33,6 @@ Fish.prototype.createFish = function () {
     
     c.appendChild(this.element);
 
-    //setInterval(move,20);
 }
 
 Fish.prototype.moveFishes = function () {
@@ -47,6 +47,3 @@ Fish.prototype.moveFishes = function () {
     this.element.style.left = this.x + "px";
    
 }
-
-
-
