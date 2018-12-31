@@ -5,6 +5,7 @@ html, body {width:100%;height:100%;margin:0;padding: 0px;overflow:hidden}
     width: 100%;
     height: 100%;
     cursor: none;
+    position: relative;
     background: url("../images/land.gif");
     background-size: cover;
  }
