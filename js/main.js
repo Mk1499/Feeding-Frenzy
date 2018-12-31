@@ -31,11 +31,24 @@ container.onmousemove = function(event){
     
 };
 
+let f1 = new Fish(100, 50, "./images/big_colored_fish.gif", 55, "left");
+let f2 = new Fish(100, 200, "./images/big_colored_fish.gif", 55, "right");
+let f3 = new Fish(100, 350, "./images/shark-attack.gif", 55, "left");
+
+
+f1.createFish();
+ 
+f2.createFish();
+ 
+f3.createFish(); 
+
 
 function UpdateGameGrid() {
 
 
-
+    f1.move();
+    f2.move();
+    f3.move();
     // c.clear();
     // c.context.drawImage(background, 0, 0, c.canvas.width, c.canvas.height);
     // fish.drawFish(c.context);

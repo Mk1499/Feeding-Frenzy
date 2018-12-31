@@ -11,6 +11,8 @@ let Fish = function (x, y, imgSrc, weight, direction) {
     this.speedX = 4;
     this.speedY = 0;
     this.element;
+    
+    
 };
 
 Fish.prototype.createFish = function () {
@@ -30,10 +32,10 @@ Fish.prototype.createFish = function () {
     
     c.appendChild(this.element);
 
-    setInterval(this.move,20);
+    //setInterval(move,20);
 }
 
-Fish.prototype.move = function () {
+Fish.prototype.moveFishes = function () {
     if (this.direction === "left") {
         this.x -= this.speedX;
         
@@ -47,13 +49,4 @@ Fish.prototype.move = function () {
 }
 
 
-f1 = new Fish(100, 50, "./images/big_colored_fish.gif", 55, "left");
-f2 = new Fish(100, 200, "./images/big_colored_fish.gif", 55, "right");
-f3 = new Fish(100, 350, "./images/shark-attack.gif", 55, "left");
 
-
-f1.createFish();
- 
-f2.createFish();
- 
-f3.createFish(); 
