@@ -1,3 +1,4 @@
+let eatSound = document.getElementById("eat");
 function playAudio() {
       eatSound.play();
 }
