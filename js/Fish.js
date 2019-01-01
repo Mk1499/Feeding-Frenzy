@@ -3,9 +3,9 @@ let Fish = function (x, y, imgSrc, weight, direction) {
 
     this.x = x;
     this.y = y;
-    this.width = 100;
-    this.height = 60;
-    this.imgSrc = "./images/" + imgSrc;
+    this.width = 100 * weight;
+    this.height = 50 * weight;
+    this.imgSrc = "./images/Enemies" + "/" + direction + "/" + imgSrc;
     this.direction = direction;
     this.weight = weight;
     this.speedX = 3;
@@ -35,7 +35,7 @@ Fish.prototype.createFish = function () {
 }
 
 Fish.prototype.moveFishes = function () {
-    
+
     if (this.direction === "left") {
         this.x -= this.speedX;
 
@@ -44,12 +44,34 @@ Fish.prototype.moveFishes = function () {
         this.x += this.speedX;
     }
 
-    if (this.direction === "left" && (parseInt(this.element.style.left) + this.width) + 200 <= 0)
-        this.direction = "right";
+    if ((this.direction === "left" && (parseInt(this.element.style.left) + this.width) + 200 <= 0)
+        ||
+        (this.direction === "right" && (parseInt(this.element.style.left) - this.width) - 200 >= window.innerWidth)
 
-    if (this.direction === "right" && (parseInt(this.element.style.left) - this.width) - 200 >= window.innerWidth)
-        this.direction = "left";
+    ) {
+        // c.removeChild(this.element) ; 
+        /* this.direction = "right" ; 
+         this.imgSrc = "./images/Enemies" +"/right/" +imgSrc; */
 
-    this.element.style.left = this.x + "px";
+        /*if (this.direction === "left" && (parseInt(this.element.style.left) + this.width) + 200 <= 0)
+            this.direction = "right";
+    
+        if (this.direction === "right" && (parseInt(this.element.style.left) - this.width) - 200 >= window.innerWidth)
+            this.direction = "left";
+    
+        this.element.style.left = this.x + "px";
+    =======
+        }
+        
+        
+      if(this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth ){
+        
+        this.direction = "left" ; 
+        this.imgSrc = "./images/Enemies" +"/left/" +imgSrc;
+      }*/
 
+
+        this.element.style.left = this.x + "px";
+
+    }
 }
