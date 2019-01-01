@@ -107,6 +107,11 @@ let moveEnemyFishes = function () {
 
     for (let i = 0; i < fishEnemiesList.length; i++) {
         fishEnemiesList[i].moveFishes();
+        if(fishEnemiesList[i].x < 0 - fishEnemiesList[i].width
+          || fishEnemiesList[i].x > window.innerWidth + fishEnemiesList[i].width){
+            container.removeChild(fishEnemiesList[i].element);
+            fishEnemiesList.splice(i, 1);
+          }
     }
  
 }
@@ -117,7 +122,7 @@ function UpdateGameGrid() {
     collisionCheck();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
-    collisionCheck() ; 
+
 }
 
 let startGame = function () {
