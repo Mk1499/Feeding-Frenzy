@@ -107,7 +107,7 @@ let moveEnemyFishes = function () {
     for (let i = 0; i < fishEnemiesList.length; i++) {
         fishEnemiesList[i].moveFishes();
     }
-
+ 
 }
 
 function UpdateGameGrid() {
