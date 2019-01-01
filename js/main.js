@@ -7,7 +7,7 @@ let interval;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let fishImages = [{ src: "big_colored_fish.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.3 },{ src: "dumy_fish.gif", weight: 0.7 }, { src: "whale.gif", weight: 1.5 }];
-
+let playerNumber = 2;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -19,9 +19,9 @@ container.onmousemove = function (event) {
     let rect = container.getBoundingClientRect();
 
     if (parseInt(fishPlayer.style.left) < event.clientX - rect.left) {
-        fishPlayer.src = "./images/Characters/player-right.gif"; // change right
+        fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif"; // change right
     } else if (parseInt(fishPlayer.style.left) > event.clientX - rect.left) {
-        fishPlayer.src = "./images/Characters/player-left.gif"; // change left
+        fishPlayer.src = "./images/Characters/player" + playerNumber + "-left.gif"; // change left
     }
 
     fishPlayer.style.left = (event.clientX - rect.left) + 'px';
@@ -141,7 +141,8 @@ function UpdateGameGrid() {
 }
 
 let startGame = function () {
-
+   
+    fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 }
 
