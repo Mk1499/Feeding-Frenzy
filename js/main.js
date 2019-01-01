@@ -119,7 +119,6 @@ let moveEnemyFishes = function () {
 function UpdateGameGrid() {
 
     createEnemyFishes();
-    collisionCheck();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
 
