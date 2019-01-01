@@ -3,8 +3,8 @@ let Fish = function (x, y, imgSrc, weight, direction) {
 
     this.x = x;
     this.y = y;
-    this.width = 10 * weight;
-    this.height = 5 *  weight;
+    this.width = 100 * weight;
+    this.height = 50 *  weight;
     this.imgSrc = "./images/Enemies" +"/"+direction+"/" +imgSrc;
     this.direction = direction;
     this.weight = weight;
@@ -55,13 +55,13 @@ Fish.prototype.moveFishes = function () {
 
     }
     
-    
+   /* 
   if(this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth ){
     
     this.direction = "left" ; 
     this.imgSrc = "./images/Enemies" +"/left/" +imgSrc;
   }
-      
+     */ 
    
       this.element.style.left = this.x + "px";
 
