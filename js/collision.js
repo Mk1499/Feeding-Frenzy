@@ -1,3 +1,8 @@
+let eatSound = document.getElementById("eatSound") ; 
+function playAudio() { 
+      eatSound.play(); 
+    } 
+
 let collisionCheck = function(){
     for (let i = 0 ; i<fishEnemiesList.length ; i++){
         
@@ -13,6 +18,7 @@ let collisionCheck = function(){
                 /*fishEnemiesList[j].element.src = "./images/space.png" ; 
                 
                */fishEnemiesList[i].element.src = "./images/done.png" ; 
+               playAudio() ;  
                score++ ; 
               fishEnemiesList.splice(i,1) ;
             
