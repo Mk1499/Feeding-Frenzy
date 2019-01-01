@@ -13,18 +13,20 @@ let collisionCheck = function () {
                   &&
                   parseInt(fishPlayer.style.top) + fishPlayer.height > fishEnemiesList[i].y
             ) {
-                 if (fishPlayer.height > fishEnemiesList[i].height ){
-                     
-                  container.removeChild(fishEnemiesList[i].element);
-                  playAudio();
-                  score++;
-                  fishEnemiesList.splice(i, 1);
-                 }
-                 else {
-                  gameover = true ; 
-                  console.log("Game Over !!!") ; 
-                 }
-                  
+                  if (fishPlayer.height >= fishEnemiesList[i].height) {
+
+                        container.removeChild(fishEnemiesList[i].element);
+                        playAudio();
+                        score++;
+                        fishEnemiesList.splice(i, 1);
+                  }
+                  else {
+                        lives--;
+                        if (lives === 0)
+                              gameover = true;
+                        console.log("Game Over !!!");
+                  }
+
             }
       }
 }

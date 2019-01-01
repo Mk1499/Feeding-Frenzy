@@ -1,12 +1,13 @@
 let score = 0;
 let level = 1;
+let lives = 3;
 let foodTimer = 0;
 let gameover = false;
 let interval;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
-let rightFishImages = [{ src: "big_colored_fish.gif", weight: 4 }, { src: "orange_fish.gif", weight: 1 }, { src: "long_orange_fish.gif", weight: 2 }, { src: "bubbles_fish.gif", weight: 1 }];
-let leftFishImages = [{ src: "black_blue_fish.gif", weight: 4 }, { src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "boom_fish.gif", weight: 3 }];
+let fishImages = [{ src: "big_colored_fish.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.3 },{ src: "dumy_fish.gif", weight: 0.7 }, { src: "whale.gif", weight: 1.5 }];
+
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -44,18 +45,18 @@ let createEnemyFishes = function () {
     foodTimer++;
     if (foodTimer > 100 && fishEnemiesList.length <= 10) {
 
-        let rand = Math.floor(Math.random() * rightFishImages.length);
+        let rand = Math.floor(Math.random() * fishImages.length);
 
         let rightFish = new Fish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
-            rightFishImages[rand].src, rightFishImages[rand].weight, "right");
+            fishImages[rand].src, fishImages[rand].weight, "right");
 
         fishEnemiesList.push(rightFish);
         rightFish.createFish();
 
-        rand = Math.floor(Math.random() * leftFishImages.length);
+        rand = Math.floor(Math.random() * fishImages.length);
 
         let leftFish = new Fish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
-            leftFishImages[rand].src, leftFishImages[rand].weight, "left");
+            fishImages[rand].src, fishImages[rand].weight, "left");
 
         fishEnemiesList.push(leftFish);
         leftFish.createFish();
@@ -129,6 +130,13 @@ function UpdateGameGrid() {
     collisionCheck();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
+    if(gameover === true){
+        alert("You Lost : Game Over");
+        clearInterval(interval);
+        if(confirm("Play a gain ?"))
+            location.reload();
+    
+    }
 
 }
 
