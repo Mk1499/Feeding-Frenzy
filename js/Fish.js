@@ -55,13 +55,13 @@ Fish.prototype.moveFishes = function () {
 
     }
     
-    
+   /* 
   if(this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth ){
     
     this.direction = "left" ; 
     this.imgSrc = "./images/Enemies" +"/left/" +imgSrc;
   }
-      
+     */ 
    
       this.element.style.left = this.x + "px";
 
