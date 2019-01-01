@@ -1,4 +1,3 @@
-let c = document.getElementById("container");
 let Fish = function (x, y, imgSrc, weight, direction) {
 
     this.x = x;
@@ -31,7 +30,7 @@ Fish.prototype.createFish = function () {
     this.element.style.top = this.y + "px";
     this.element.style.left = this.x + "px";
     
-    c.appendChild(this.element);
+    container.appendChild(this.element);
 
 }
 
@@ -49,7 +48,7 @@ Fish.prototype.moveFishes = function () {
       (this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth )
 
       ){
-       // c.removeChild(this.element) ; 
+       // container.removeChild(this.element) ; 
        /* this.direction = "right" ; 
         this.imgSrc = "./images/Enemies" +"/right/" +imgSrc; */
 

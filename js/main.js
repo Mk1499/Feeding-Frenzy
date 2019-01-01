@@ -11,7 +11,7 @@ let fishImages = [{ src: "big_colored_fish.gif", weight: 1.7 },{ src: "gray_fish
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
-//let eatSound = document.getElementById("eat");
+let eatSound = document.getElementById("eat");
 
 
 container.onmousemove = function (event) {
