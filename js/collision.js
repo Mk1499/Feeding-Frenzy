@@ -1,4 +1,3 @@
-
 function playAudio() {
       eatSound.play();
 }
@@ -14,11 +13,18 @@ let collisionCheck = function () {
                   &&
                   parseInt(fishPlayer.style.top) + fishPlayer.height > fishEnemiesList[i].y
             ) {
-                 
+                 if (fishPlayer.height > fishEnemiesList[i].height ){
+                     
                   container.removeChild(fishEnemiesList[i].element);
                   playAudio();
                   score++;
                   fishEnemiesList.splice(i, 1);
+                 }
+                 else {
+                  gameover = true ; 
+                  console.log("Game Over !!!") ; 
+                 }
+                  
             }
       }
 }
