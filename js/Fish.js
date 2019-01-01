@@ -11,7 +11,7 @@ let Fish = function (x, y, imgSrc, weight, direction) {
     this.speedX = 3;
     this.speedY = 0;
     this.element;
-    
+
 };
 
 Fish.prototype.createFish = function () {
@@ -29,26 +29,27 @@ Fish.prototype.createFish = function () {
 
     this.element.style.top = this.y + "px";
     this.element.style.left = this.x + "px";
-    
+
     c.appendChild(this.element);
 
 }
 
 Fish.prototype.moveFishes = function () {
+    
     if (this.direction === "left") {
         this.x -= this.speedX;
-        
+
     }
     else if (this.direction === "right") {
         this.x += this.speedX;
     }
 
-    if(this.direction === "left" && (parseInt(this.element.style.left) + this.width)+200 <= 0 )
-      this.direction = "right" ; 
-    
-  if(this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth )
-      this.direction = "left" ; 
-   
-      this.element.style.left = this.x + "px";
+    if (this.direction === "left" && (parseInt(this.element.style.left) + this.width) + 200 <= 0)
+        this.direction = "right";
+
+    if (this.direction === "right" && (parseInt(this.element.style.left) - this.width) - 200 >= window.innerWidth)
+        this.direction = "left";
+
+    this.element.style.left = this.x + "px";
 
 }

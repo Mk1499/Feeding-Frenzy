@@ -6,10 +6,11 @@ let interval;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let rightFishImages = [{ src: "big_colored_fish.gif", weight: 4 }, { src: "orange_fish.gif", weight: 1 }, { src: "long_orange_fish.gif", weight: 2 }, { src: "bubbles_fish.gif", weight: 1 }];
-let leftFishImages = [{ src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "boom_fish.gif", weight: 3 }];
+let leftFishImages = [{ src: "black_blue_fish.gif", weight: 4},{ src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "boom_fish.gif", weight: 3 }];
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
+let eatSound = document.getElementById("eat");
 
 
 container.onmousemove = function (event) {
@@ -31,22 +32,22 @@ container.onmousemove = function (event) {
 
 };
 
-let createFishEnemies = function () {
+let createEnemyFishes = function () {
 
     foodTimer++;
     if (foodTimer > 100 && fishEnemiesList.length <= 10) {
 
-        let rand = Math.round(Math.random() * 3);
+        let rand = Math.floor(Math.random() * rightFishImages.length);
 
-        let rightFish = new Fish(0, fishEntryPositions[Math.round(Math.random() * 14)],
+        let rightFish = new Fish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
             rightFishImages[rand].src, rightFishImages[rand].weight, "right");
 
         fishEnemiesList.push(rightFish);
         rightFish.createFish();
 
-        rand = Math.round(Math.random() * 3);
+        rand = Math.floor(Math.random() * leftFishImages.length);
 
-        let leftFish = new Fish(0, fishEntryPositions[Math.round(Math.random() * 14)],
+        let leftFish = new Fish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
             leftFishImages[rand].src, leftFishImages[rand].weight, "left");
 
         fishEnemiesList.push(leftFish);
@@ -74,9 +75,9 @@ let detectCollisionBetweenEnemyFishes = function () {
                         && fishEnemiesList[j].x > 0
                         && fishEnemiesList[j].x <= window.innerWidth) {
 
-                        // console.log("collision happend between fish at x : " + fishEnemiesList[i].x
-                        //     + " and y: " + fishEnemiesList[i].y + " and fish at x : " + fishEnemiesList[j].x
-                        //     + " and y: " + fishEnemiesList[j].y + " and array length : " + fishEnemiesList.length);
+                        console.log("collision happend between fish at x : " + fishEnemiesList[i].x
+                            + " and y: " + fishEnemiesList[i].y + " and fish at x : " + fishEnemiesList[j].x
+                            + " and y: " + fishEnemiesList[j].y + " and array length : " + fishEnemiesList.length);
 
                         if (fishEnemiesList[i].weight > fishEnemiesList[j].weight) {
                             container.removeChild(fishEnemiesList[j].element);
@@ -112,7 +113,8 @@ let moveEnemyFishes = function () {
 
 function UpdateGameGrid() {
 
-    createFishEnemies();
+    createEnemyFishes();
+    collisionCheck();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
 }
