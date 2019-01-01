@@ -6,10 +6,11 @@ let interval;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let rightFishImages = [{ src: "big_colored_fish.gif", weight: 4 }, { src: "orange_fish.gif", weight: 1 }, { src: "long_orange_fish.gif", weight: 2 }, { src: "bubbles_fish.gif", weight: 1 }];
-let leftFishImages = [{ src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "big_colored_fish.gif", weight: 3 }];
+let leftFishImages = [{ src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "boom_fish.gif", weight: 3 }];
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
+
 
 container.onmousemove = function (event) {
 
@@ -30,10 +31,10 @@ container.onmousemove = function (event) {
 
 };
 
-function UpdateGameGrid() {
+let createFishEnemies = function () {
 
     foodTimer++;
-    if (foodTimer > 150 && fishEnemiesList.length < 5) {
+    if (foodTimer > 100 && fishEnemiesList.length <= 10) {
 
         let rand = Math.round(Math.random() * 3);
 
@@ -54,14 +55,66 @@ function UpdateGameGrid() {
         foodTimer = 0;
     }
 
+}
+
+
+let detectCollisionBetweenEnemyFishes = function () {
+
     for (let i = 0; i < fishEnemiesList.length; i++) {
 
-       // console.log(fishEnemiesList[i]);
-        fishEnemiesList[i].moveFishes();
+        if (fishEnemiesList[i].direction === "right") {
+            for (let j = 0; j < fishEnemiesList.length; j++) {
+                if (i != j && fishEnemiesList[j].direction == "left"
+                    && fishEnemiesList[i].weight != fishEnemiesList[j].weight) {
+
+                    if (fishEnemiesList[j].x - fishEnemiesList[i].x <= fishEnemiesList[i].width
+                        && fishEnemiesList[i].y === fishEnemiesList[j].y
+                        && fishEnemiesList[i].x > 0
+                        && fishEnemiesList[i].x <= window.innerWidth + fishEnemiesList[i].width
+                        && fishEnemiesList[j].x > 0
+                        && fishEnemiesList[j].x <= window.innerWidth) {
+
+                        // console.log("collision happend between fish at x : " + fishEnemiesList[i].x
+                        //     + " and y: " + fishEnemiesList[i].y + " and fish at x : " + fishEnemiesList[j].x
+                        //     + " and y: " + fishEnemiesList[j].y + " and array length : " + fishEnemiesList.length);
+
+                        if (fishEnemiesList[i].weight > fishEnemiesList[j].weight) {
+                            container.removeChild(fishEnemiesList[j].element);
+                            fishEnemiesList.splice(j, 1);
+
+
+                        }
+                        else if (fishEnemiesList[i].weight < fishEnemiesList[j].weight) {
+                            container.removeChild(fishEnemiesList[i].element);
+                            fishEnemiesList.splice(i, 1);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
 
     }
 
+}
 
+let moveEnemyFishes = function () {
+
+    for (let i = 0; i < fishEnemiesList.length; i++) {
+        fishEnemiesList[i].moveFishes();
+    }
+
+}
+
+function UpdateGameGrid() {
+
+    createFishEnemies();
+    detectCollisionBetweenEnemyFishes();
+    moveEnemyFishes();
 }
 
 let startGame = function () {
@@ -70,5 +123,3 @@ let startGame = function () {
 }
 
 startGame();
-
-

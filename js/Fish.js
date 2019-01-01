@@ -12,7 +12,6 @@ let Fish = function (x, y, imgSrc, weight, direction) {
     this.speedY = 0;
     this.element;
     
-    
 };
 
 Fish.prototype.createFish = function () {
