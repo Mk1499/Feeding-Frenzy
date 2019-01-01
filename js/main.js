@@ -60,7 +60,9 @@ function UpdateGameGrid() {
         fishEnemiesList[i].moveFishes();
 
     }
+ 
 
+    collisionCheck() ; 
 
 }
 
