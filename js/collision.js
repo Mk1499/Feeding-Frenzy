@@ -14,13 +14,20 @@ let collisionCheck = function(){
                   &&
                   parseInt(fishPlayer.style.top) + fishPlayer.height > fishEnemiesList[i].y 
                  ){
+                       
                 console.log("There is Collision Between fish number "+ i+1) ;
                 /*fishEnemiesList[j].element.src = "./images/space.png" ; 
                 
-               */fishEnemiesList[i].element.src = "./images/done.png" ; 
+               */
+              if (fishPlayer.height > fishEnemiesList[i].height){
+               fishEnemiesList[i].element.src = "./images/done.png" ; 
                playAudio() ;  
                score++ ; 
-              fishEnemiesList.splice(i,1) ;
+              fishEnemiesList.splice(i,1) ;}
+              else {
+                    gameover = true ; 
+                    console.log("Game Over") ; 
+              }
             
         } 
     }

@@ -3,8 +3,8 @@ let Fish = function (x, y, imgSrc, weight, direction) {
 
     this.x = x;
     this.y = y;
-    this.width = 100 * weight;
-    this.height = 50 *  weight;
+    this.width = 10 * weight;
+    this.height = 5 *  weight;
     this.imgSrc = "./images/Enemies" +"/"+direction+"/" +imgSrc;
     this.direction = direction;
     this.weight = weight;
