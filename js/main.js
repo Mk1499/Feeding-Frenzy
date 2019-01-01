@@ -16,24 +16,26 @@ let eatSound = document.getElementById("eat");
 container.onmousemove = function (event) {
 
     let rect = container.getBoundingClientRect();
-    //console.log(rect.left + "  " + rect.top);
+
+    if (parseInt(fishPlayer.style.left) < event.clientX - rect.left) {
+        fishPlayer.src = "./images/Characters/player-right.gif"; // change right
+    } else if (parseInt(fishPlayer.style.left) > event.clientX - rect.left) {
+        fishPlayer.src = "./images/Characters/player-left.gif"; // change left
+    }
+
     fishPlayer.style.left = (event.clientX - rect.left) + 'px';
     fishPlayer.style.top = (event.clientY - rect.top) + 'px';
 
-    if (fishPlayer.style.left < event.clientX) {
-        fishPlayer.src = "./images/Characters/player-right.gif"; // right
-    } else if (fishPlayer.style.left > event.clientX){
-        fishPlayer.src = "./images/Characters/player-left.gif"; // left
-    }
-if (event.clientX >= window.innerWidth - fishPlayer.width) {
-    fishPlayer.style.left = window.innerWidth - fishPlayer.width + 'px';
-    // console.log(fishPlayer.style.left + "  Here " + fishPlayer.width );
-}
 
-if (event.clientY >= window.innerHeight - fishPlayer.height) {
-    fishPlayer.style.top = window.innerHeight - fishPlayer.height + 'px';
-    // console.log(fishPlayer.style.top + "  Here " + fishPlayer.height );
-}
+    if (event.clientX >= window.innerWidth - fishPlayer.width) {
+    
+        fishPlayer.style.left = window.innerWidth - fishPlayer.width + 'px';   
+    }
+
+    if (event.clientY >= window.innerHeight - fishPlayer.height) {
+
+        fishPlayer.style.top = window.innerHeight - fishPlayer.height + 'px';
+    }
 
 };
 
@@ -80,9 +82,9 @@ let detectCollisionBetweenEnemyFishes = function () {
                         && fishEnemiesList[j].x > 0
                         && fishEnemiesList[j].x <= window.innerWidth) {
 
-                        console.log("collision happend between fish at x : " + fishEnemiesList[i].x
-                            + " and y: " + fishEnemiesList[i].y + " and fish at x : " + fishEnemiesList[j].x
-                            + " and y: " + fishEnemiesList[j].y + " and array length : " + fishEnemiesList.length);
+                        // console.log("collision happend between fish at x : " + fishEnemiesList[i].x
+                        //     + " and y: " + fishEnemiesList[i].y + " and fish at x : " + fishEnemiesList[j].x
+                        //     + " and y: " + fishEnemiesList[j].y + " and array length : " + fishEnemiesList.length);
 
                         if (fishEnemiesList[i].weight > fishEnemiesList[j].weight) {
                             container.removeChild(fishEnemiesList[j].element);
