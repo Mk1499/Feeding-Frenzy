@@ -115,6 +115,7 @@ function UpdateGameGrid() {
     createFishEnemies();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
+    collisionCheck() ; 
 }
 
 let startGame = function () {
