@@ -6,7 +6,7 @@ let interval;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let rightFishImages = [{ src: "big_colored_fish.gif", weight: 4 }, { src: "orange_fish.gif", weight: 1 }, { src: "long_orange_fish.gif", weight: 2 }, { src: "bubbles_fish.gif", weight: 1 }];
-let leftFishImages = [{ src: "black_blue_fish.gif", weight: 4},{ src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "boom_fish.gif", weight: 3 }];
+let leftFishImages = [{ src: "black_blue_fish.gif", weight: 4 }, { src: "dumy_fish.gif", weight: 2 }, { src: "whale.gif", weight: 3 }, { src: "yellow_fish.gif", weight: 2 }, { src: "boom_fish.gif", weight: 3 }];
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -20,15 +20,20 @@ container.onmousemove = function (event) {
     fishPlayer.style.left = (event.clientX - rect.left) + 'px';
     fishPlayer.style.top = (event.clientY - rect.top) + 'px';
 
-    if (event.clientX >= window.innerWidth - fishPlayer.width) {
-        fishPlayer.style.left = window.innerWidth - fishPlayer.width + 'px';
-        // console.log(fishPlayer.style.left + "  Here " + fishPlayer.width );
+    if (fishPlayer.style.left < event.clientX) {
+        fishPlayer.src = "./images/Characters/player-right.gif"; // right
+    } else if (fishPlayer.style.left > event.clientX){
+        fishPlayer.src = "./images/Characters/player-left.gif"; // left
     }
+if (event.clientX >= window.innerWidth - fishPlayer.width) {
+    fishPlayer.style.left = window.innerWidth - fishPlayer.width + 'px';
+    // console.log(fishPlayer.style.left + "  Here " + fishPlayer.width );
+}
 
-    if (event.clientY >= window.innerHeight - fishPlayer.height) {
-        fishPlayer.style.top = window.innerHeight - fishPlayer.height + 'px';
-        // console.log(fishPlayer.style.top + "  Here " + fishPlayer.height );
-    }
+if (event.clientY >= window.innerHeight - fishPlayer.height) {
+    fishPlayer.style.top = window.innerHeight - fishPlayer.height + 'px';
+    // console.log(fishPlayer.style.top + "  Here " + fishPlayer.height );
+}
 
 };
 
@@ -107,13 +112,13 @@ let moveEnemyFishes = function () {
 
     for (let i = 0; i < fishEnemiesList.length; i++) {
         fishEnemiesList[i].moveFishes();
-        if(fishEnemiesList[i].x < 0 - fishEnemiesList[i].width
-          || fishEnemiesList[i].x > window.innerWidth + fishEnemiesList[i].width){
+        if (fishEnemiesList[i].x < 0 - fishEnemiesList[i].width
+            || fishEnemiesList[i].x > window.innerWidth + fishEnemiesList[i].width) {
             container.removeChild(fishEnemiesList[i].element);
             fishEnemiesList.splice(i, 1);
-          }
+        }
     }
- 
+
 }
 
 function UpdateGameGrid() {
