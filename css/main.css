@@ -1,0 +1,22 @@
+body{
+   position: relative;
+}
+
+#start{
+    position: fixed;
+    top: 0 ;
+    background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
+    background-size: cover ; 
+    color: #fff ;
+    z-index: 999;
+    height: 100%;
+    animation-delay: 0.5s ; 
+    animation-duration: 2s; 
+}
+.transperant-btn{
+    background: transparent ; 
+    border: 0px; 
+    width: 40%;
+    
+    
+}
