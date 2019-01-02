@@ -9,14 +9,14 @@ let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 55
 let fishImages = [{ src: "big_colored_fish.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.2 },{ src: "dumy_fish.gif", weight: 0.7 }, { src: "whale.gif", weight: 1.4 }];
 let playerNumber = 2;
 
-//localStorage.setItem("HScore" , 0) ; 
+//localStorage.setItem("HScore" , 0) ;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
-let scoreRecord = document.getElementById("score") ; 
-let levelRecord = document.getElementById("level") ; 
-let HScoreRecord = document.getElementById("HScore") ; 
+let scoreRecord = document.getElementById("score") ;
+let levelRecord = document.getElementById("level") ;
+let HScoreRecord = document.getElementById("HScore") ;
 
 
 container.onmousemove = function (event) {
@@ -34,8 +34,8 @@ container.onmousemove = function (event) {
 
 
     if (event.clientX >= window.innerWidth - fishPlayer.width) {
-    
-        fishPlayer.style.left = window.innerWidth - fishPlayer.width + 'px';   
+
+        fishPlayer.style.left = window.innerWidth - fishPlayer.width + 'px';
     }
 
     if (event.clientY >= window.innerHeight - fishPlayer.height) {
@@ -51,20 +51,21 @@ function UpdateGameGrid() {
     detectCollisionBetweenPlayerFishAndEnemyFishes();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
-    scoreAndLevel() ; 
+    //scoreAndLevel() ;
+    adjustBoard(score,level,playerNumber,lives);
     if(gameover === true){
         alert("You Lost : Game Over");
         clearInterval(interval);
         if(confirm("Play a gain ?"))
             location.reload();
-    
+
     }
 
 }
 
 let startGame = function () {
-    
-    playerNumber = 1;
+
+    //playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 }

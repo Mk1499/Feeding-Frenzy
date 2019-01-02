@@ -26,13 +26,39 @@
         <source src="videos/background.mp4" type="video/mp4">
 
     </video> -->
-    <!-->This is test comment<-->
-    <span>Score : </span>
-    <span id="score"></span>
-    <span> Level : </span>
-    <span id="level"></span>
-    <span> High Score : </span>
-    <span id="HScore"></span>
+
+    <div id='board'>
+      <div id='scoreDiv'>
+        <img src='images/Header Content/Score.png' id='scoreImg'></img>
+        <div id='scoreNumDiv'>
+          <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+          <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+          <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+          <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+        </div>
+      </div>
+
+      <div id='growthDiv'>
+        <img src='images/Header Content/Growth.png' id='growthImg'></img>
+        <div id='growthBarTotal'>
+           <div id='growthBarActual'></div>
+        </div>
+      </div>
+
+      <div id='levelDiv'>
+         <img src='images/Header Content/Level.png' id='levelImg'></img>
+         <img id='levelNum' src='images/Characters/numbers/1-blue.png'></img>
+       </div>
+
+       <div id='liveDiv'>
+         <img id='charImg'></img>
+         <div id='liveNumDiv'>
+           <img class='liveNum' src='images/Characters/numbers/0-blue.png'></img>
+           <img class='liveNum' src='images/Characters/numbers/0-blue.png'></img>
+         </div>
+       </div>
+
+   </div>
 
     <div id="container">
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player-left.gif" style="left: 48%;top:49%;position: relative" />
@@ -46,6 +72,7 @@
     <script src="js/CollisionDetection.js"></script>
     <script src="js/scoreAndLevel.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/board.js"></script>
 </body>
 
 </html>
