@@ -69,7 +69,7 @@ function UpdateGameGrid() {
 
 let startGame = function () {
     
-    playerNumber = 3;
+    playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 }
@@ -79,4 +79,4 @@ let playUnderWater = function (){
 }
 sound = setInterval(playUnderWater , 2000) ; 
 
-startGame();
+//startGame();
