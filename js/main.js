@@ -7,17 +7,17 @@ let interval;
 let playerNumber;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
-let fishImages = [{ src: "shark.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.2 },{ src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
+let fishImages = [{ src: "shark.gif", weight: 1.7 }, { src: "gray_fish.gif", weight: 1.2 }, { src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
 let levelCompletionScores = [20, 50, 80];
-let noCollision=true;
+let noCollision = true;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
-let underWater = document.getElementById("underWater") ;
-let scoreRecord = document.getElementById("score") ;
-let levelRecord = document.getElementById("level") ;
-let HScoreRecord = document.getElementById("HScore") ;
+let underWater = document.getElementById("underWater");
+let scoreRecord = document.getElementById("score");
+let levelRecord = document.getElementById("level");
+let HScoreRecord = document.getElementById("HScore");
 let scoreNumArr = document.getElementsByClassName('scoreNum');//4 images for score
 let liveNumArr = document.getElementsByClassName('liveNum');//2 images for lives
 let growthBarTotal = document.getElementById('growthBarTotal');// growth bar total div
@@ -56,32 +56,47 @@ container.onmousemove = function (event) {
 
 };
 
+document.onkeydown = function (event){
+
+    if(event.keyCode === 27)
+        if(!confirm("Continue Playing ?"))
+            location.reload();
+};
+
 function UpdateGameGrid() {
-if (noCollision===true){
-  createEnemyFishes();
-  noCollision=detectCollisionBetweenPlayerFishAndEnemyFishes();
-  detectCollisionBetweenEnemyFishes();
-  moveEnemyFishes();
-  scoreAndLevel() ;
-  adjustBoard(score,level,playerNumber,lives);
-  if(gameover === true){
-      alert("You Lost : Game Over");
-      clearInterval(interval);
-      if(confirm("Play a gain ?"))
-          location.reload();
-  }
-}
-else{
-  lives--;
-  for(let k=0;k<fishEnemiesList.length;k++)
-     container.removeChild(fishEnemiesList[k].element);
-  fishEnemiesList=[];
-  clearInterval(interval);
-  noCollision=true;
-  startGame();
-  if (lives === 0)
-        gameover = true;
-}
+
+    if (noCollision === true) {
+
+        createEnemyFishes();
+        noCollision = detectCollisionBetweenPlayerFishAndEnemyFishes();
+        detectCollisionBetweenEnemyFishes();
+        moveEnemyFishes();
+        scoreAndLevel();
+        adjustBoard(score, level, playerNumber, lives);
+
+        if (gameover === true) {
+
+            alert("You Lost : Game Over");
+            clearInterval(interval);
+
+            if (confirm("Play a gain ?"))
+                location.reload();
+
+        }
+
+    } else {
+
+        lives--;
+        for (let k = 0; k < fishEnemiesList.length; k++)
+            container.removeChild(fishEnemiesList[k].element);
+
+        fishEnemiesList = [];
+        clearInterval(interval);
+        noCollision = true;
+        startGame();
+        if (lives === 0)
+            gameover = true;
+    }
 
 
 }
@@ -93,9 +108,10 @@ let startGame = function () {
     interval = setInterval(UpdateGameGrid, 20);
 }
 
-let playUnderWater = function (){
-    underWater.play() ;
+let playUnderWater = function () {
+    underWater.play();
 }
-sound = setInterval(playUnderWater , 2000) ;
+
+sound = setInterval(playUnderWater, 2000);
 
 //startGame();
