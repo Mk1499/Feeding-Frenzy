@@ -7,17 +7,17 @@ let scoreAndLevel = function(){
         fishPlayer.height = 60 ;
         fishPlayer.width = 100 ; 
     } 
-    else if (score === 2){
+    else if (score === 10){
 
         fishPlayer.height = 100 ;
         fishPlayer.width = 150 ; 
     }
     
-    if (score === 3 ){
+    if (score === 20 ){
         fishPlayer.height = 150 ;
         fishPlayer.width = 200 ; 
     }
-    else if (score ===4){
+    else if (score === 30){
         level++ ; 
         score = 0 ; 
     }
