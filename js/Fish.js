@@ -21,6 +21,7 @@ Fish.prototype.createFish = function () {
     this.element.style.position = "absolute";
     this.element.height = this.height;
     this.element.width = this.width;
+   // this.element.style.border = "2px red solid "
 
     if (this.direction === "left")
         this.x = window.innerWidth + this.width;

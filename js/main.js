@@ -13,6 +13,7 @@ let levelCompletionScores = [20, 50, 80];
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
+let underWater = document.getElementById("underWater") ; 
 let scoreRecord = document.getElementById("score") ; 
 let levelRecord = document.getElementById("level") ; 
 let HScoreRecord = document.getElementById("HScore") ; 
@@ -79,5 +80,10 @@ let startGame = function () {
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 }
+
+let playUnderWater = function (){
+    underWater.play() ; 
+}
+sound = setInterval(playUnderWater , 2000) ; 
 
 startGame();

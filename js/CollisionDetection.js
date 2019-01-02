@@ -13,9 +13,10 @@ let playAudio = function() {
 ************************************/
 
 let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
+      //fishPlayer.style.border = "2px black solid" ;
       for (let i = 0; i < fishEnemiesList.length; i++) {
 
-            if (parseInt(fishPlayer.style.left) < fishEnemiesList[i].x + fishEnemiesList[i].width
+           /* if (parseInt(fishPlayer.style.left) < fishEnemiesList[i].x + fishEnemiesList[i].width
                   &&
                   parseInt(fishPlayer.style.left) + fishPlayer.width > fishEnemiesList[i].x
                   &&
@@ -35,11 +36,69 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                         if (lives === 0)
                               gameover = true;
                         console.log("Game Over !!!");
+                  }*/
+
+
+
+
+
+                  if (fishEnemiesList[i].direction === "left"){
+                        if (parseInt(fishPlayer.style.left) < fishEnemiesList[i].x + 0.7 * fishEnemiesList[i].width
+                        &&
+                        parseInt(fishPlayer.style.left) + fishPlayer.width > fishEnemiesList[i].x
+                        &&
+                        parseInt(fishPlayer.style.top) < fishEnemiesList[i].y + 0.8*fishEnemiesList[i].height
+                        &&
+                        parseInt(fishPlayer.style.top) + fishPlayer.height > fishEnemiesList[i].y 
+                        + 0.2 * fishEnemiesList[i].height
+                  ){
+                           // alert("collision") ; 
+                            if (fishPlayer.height >= fishEnemiesList[i].height) {
+
+                              container.removeChild(fishEnemiesList[i].element);
+                              playAudio();
+                              score++;
+                              fishEnemiesList.splice(i, 1);
+                        }
+                        else {
+                              lives--;
+                              if (lives === 0)
+                                    gameover = true;
+                              console.log("Game Over !!!");
+                        }
+                        }     
+                  }
+
+                  if (fishEnemiesList[i].direction === "right"){
+                        if (parseInt(fishPlayer.style.left) > fishEnemiesList[i].x + 0.5*fishEnemiesList[i].width
+                        &&
+                        parseInt(fishPlayer.style.left)  < fishEnemiesList[i].x + 1*fishEnemiesList[i].width
+                        &&
+                        parseInt(fishPlayer.style.top) < fishEnemiesList[i].y + 0.8*fishEnemiesList[i].height
+                        &&
+                        parseInt(fishPlayer.style.top) + fishPlayer.height > fishEnemiesList[i].y 
+                        + 0.2 * fishEnemiesList[i].height
+                  ){
+                           // alert("collision") ; 
+                            if (fishPlayer.height >= fishEnemiesList[i].height) {
+
+                              container.removeChild(fishEnemiesList[i].element);
+                              playAudio();
+                              score++;
+                              fishEnemiesList.splice(i, 1);
+                        }
+                        else {
+                              lives--;
+                              if (lives === 0)
+                                    gameover = true;
+                              console.log("Game Over !!!");
+                        }
+                        }     
                   }
 
             }
       }
-};
+
 
 /**********************************
 ** this function to detect the collision between the enemy fishes itself   
