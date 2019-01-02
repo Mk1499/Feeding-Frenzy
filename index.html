@@ -10,15 +10,22 @@
 
 </head>
 <body>
-    <div id="container" >
-        <img id = "fishPlayer" width = 100  height = 60 src="./images/Characters/player-left.gif" style = "left: 48%;top:49%;position: relative" />
-
+    
+    
+     <span>Score</span>
+     <span id="score"></span>
+     <span>Level</span>
+     <span id="level"></span>
+     <div id="container" >
+     <img id = "fishPlayer" width = 100  height = 60 src="./images/Characters/player-left.gif" style = "left: 48%;top:49%;position: relative" />
     </div>
-
+    
+    
     <audio id = "eat" type = "audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
    
     <script src="js/Fish.js"></script>
     <script src = "js/collision.js"></script>
+    <script src="js/scoreAndLevel.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

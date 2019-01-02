@@ -12,6 +12,8 @@ let playerNumber = 2;
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
+let scoreRecord = document.getElementById("score") ; 
+let levelRecord = document.getElementById("level") ; 
 
 
 container.onmousemove = function (event) {
@@ -130,6 +132,7 @@ function UpdateGameGrid() {
     collisionCheck();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
+    scoreAndLevel() ; 
     if(gameover === true){
         alert("You Lost : Game Over");
         clearInterval(interval);
