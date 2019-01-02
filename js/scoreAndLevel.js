@@ -23,6 +23,6 @@ let scoreAndLevel = function(){
         score = 0 ; 
     }
 
-    if (score > localStorage.getItem("HScore"))
+    if ((score + level *10) > localStorage.getItem("HScore"))
     localStorage.setItem("HScore",score) ; 
 }
