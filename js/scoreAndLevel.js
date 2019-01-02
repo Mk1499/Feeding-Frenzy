@@ -1,10 +1,6 @@
 
 let scoreAndLevel = function () {
 
-    scoreRecord.innerHTML = score;
-    levelRecord.innerHTML = level;
-    HScoreRecord.innerHTML = localStorage.getItem("HScore");
-
     if (score === 0) {
 
         fishPlayer.height = 60;

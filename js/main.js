@@ -29,6 +29,8 @@ container.onmousemove = function (event) {
         fishPlayer.src = "./images/Characters/player" + playerNumber + "-left.gif"; // change left
     }
 
+    window.scrollBy(event.clientX - parseInt(fishPlayer.style.left), event.clientY - parseInt(fishPlayer.style.top));
+
     fishPlayer.style.left = (event.clientX - rect.left) + 'px';
     fishPlayer.style.top = (event.clientY - rect.top) + 'px';
 
@@ -51,8 +53,9 @@ function UpdateGameGrid() {
     detectCollisionBetweenPlayerFishAndEnemyFishes();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
-    //scoreAndLevel() ; 
+    scoreAndLevel() ; 
     adjustBoard(score,level,playerNumber,lives);
+    
     if(gameover === true){
         alert("You Lost : Game Over");
         clearInterval(interval);
