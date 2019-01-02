@@ -6,7 +6,7 @@ let gameover = false;
 let interval;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
-let fishImages = [{ src: "shark.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.2 },{ src: "dumy_fish.gif", weight: 0.7 }, { src: "whale.gif", weight: 1.4 }];
+let fishImages = [{ src: "shark.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.2 },{ src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
 let playerNumber = 2;
 
 //localStorage.setItem("HScore" , 0) ; 
@@ -64,7 +64,7 @@ function UpdateGameGrid() {
 
 let startGame = function () {
     
-    playerNumber = 1;
+    playerNumber = 3;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 }

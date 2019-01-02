@@ -25,8 +25,24 @@ let scoreAndLevel = function () {
 
         level++;
         score = 0;
+        addNewEnemyFish();
     }
 
     if ((score + (level * 10)) > localStorage.getItem("HScore"))
         localStorage.setItem("HScore", score);
+}
+
+/**********************************
+** this function to add a new type of fishes to the game at every level
+**
+** Author (@ Mohamed Gomaa)
+**
+************************************/
+
+let addNewEnemyFish = function(){
+
+    if(level === 2)
+        fishImages.push({ src: "blueFish.gif", weight: 1.5 });
+    else if(level === 3)
+        fishImages.push({ src: "BOOMFish.gif", weight: 1.5 });
 }
