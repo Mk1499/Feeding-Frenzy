@@ -10,8 +10,8 @@ let Fish = function (x, y, imgSrc, weight, direction) {
     this.speedX = 3*level;
     this.speedY = 0;
     this.element;
-    
-    
+
+
 };
 
 Fish.prototype.createFish = function () {
@@ -30,7 +30,7 @@ Fish.prototype.createFish = function () {
 
     this.element.style.top = this.y + "px";
     this.element.style.left = this.x + "px";
-    
+
     container.appendChild(this.element);
 
 }
@@ -38,31 +38,31 @@ Fish.prototype.createFish = function () {
 Fish.prototype.moveFishes = function () {
     if (this.direction === "left") {
         this.x -= this.speedX;
-        
+
     }
     else if (this.direction === "right") {
         this.x += this.speedX;
     }
-   
-    if((this.direction === "left" && (parseInt(this.element.style.left) + this.width)+200 <= 0) 
-      || 
+
+    if((this.direction === "left" && (parseInt(this.element.style.left) + this.width)+200 <= 0)
+      ||
       (this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth )
 
       ){
-       // container.removeChild(this.element) ; 
-       /* this.direction = "right" ; 
+       // container.removeChild(this.element) ;
+       /* this.direction = "right" ;
         this.imgSrc = "./images/Enemies" +"/right/" +imgSrc; */
 
     }
-    
-   /* 
+
+   /*
   if(this.direction === "right" && (parseInt(this.element.style.left) - this.width)-200 >= window.innerWidth ){
-    
-    this.direction = "left" ; 
+
+    this.direction = "left" ;
     this.imgSrc = "./images/Enemies" +"/left/" +imgSrc;
   }
-     */ 
-   
+     */
+
       this.element.style.left = this.x + "px";
 
 }
