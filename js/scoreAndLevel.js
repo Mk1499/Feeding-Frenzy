@@ -1,6 +1,7 @@
 let scoreAndLevel = function(){
     scoreRecord.innerHTML = score ; 
     levelRecord.innerHTML = level ; 
+    HScoreRecord.innerHTML = localStorage.getItem("HScore") ; 
 
     if (score === 0){
 
@@ -21,4 +22,7 @@ let scoreAndLevel = function(){
         level++ ; 
         score = 0 ; 
     }
+
+    if (score > localStorage.getItem("HScore"))
+    localStorage.setItem("HScore",score) ; 
 }
