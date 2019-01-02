@@ -7,7 +7,7 @@ let Fish = function (x, y, imgSrc, weight, direction) {
     this.imgSrc = "./images/Enemies" +"/"+direction+"/" +imgSrc;
     this.direction = direction;
     this.weight = weight;
-    this.speedX = 3;
+    this.speedX = 3*level;
     this.speedY = 0;
     this.element;
     

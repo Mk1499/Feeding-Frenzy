@@ -9,9 +9,14 @@ let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 55
 let fishImages = [{ src: "big_colored_fish.gif", weight: 1.7 },{ src: "gray_fish.gif", weight: 1.3 },{ src: "dumy_fish.gif", weight: 0.7 }, { src: "whale.gif", weight: 1.5 }];
 let playerNumber = 2;
 
+//localStorage.setItem("HScore" , 0) ; 
+
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
+let scoreRecord = document.getElementById("score") ; 
+let levelRecord = document.getElementById("level") ; 
+let HScoreRecord = document.getElementById("HScore") ; 
 
 
 container.onmousemove = function (event) {
@@ -46,6 +51,7 @@ function UpdateGameGrid() {
     detectCollisionBetweenPlayerFishAndEnemyFishes();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
+    scoreAndLevel() ; 
     if(gameover === true){
         alert("You Lost : Game Over");
         clearInterval(interval);
