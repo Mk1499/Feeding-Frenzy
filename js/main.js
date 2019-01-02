@@ -64,7 +64,7 @@ function UpdateGameGrid() {
 
 let startGame = function () {
     
-    playerNumber = 2;
+    playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 }

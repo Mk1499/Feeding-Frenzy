@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Feeding Frenzy </title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel = "icon" tybe="image/x-icon" href="images/dumy_fish.gif">
+    <link rel="icon" tybe="image/x-icon" href="images/dumy_fish.gif">
 
 </head>
+
 <body>
-    
-    
-     <span>Score : </span>
-     <span id="score"></span>
-     <span> Level : </span>
-     <span id="level"></span>
-     <span> High Score : </span>
-     <span id="HScore"></span>
-     
-     <div id="container" >
-     <img id = "fishPlayer" width = 100  height = 60 src="./images/Characters/player-left.gif" style = "left: 48%;top:49%;position: relative" />
+    <video playsinline autoplay muted loop>
+        <!-- 
+      
+        - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+      WCAG general accessibility recommendation is that media such as background video
+      play through only once. Loop turned on for the purposes of illustration; 
+      if removed, the end of the video will fade in the same way created by pressing 
+      the "Pause" button
+
+    -->
+
+        <source src="video/background.mp4" type="video/mp4">
+
+    </video> -->
+
+    <span>Score : </span>
+    <span id="score"></span>
+    <span> Level : </span>
+    <span id="level"></span>
+    <span> High Score : </span>
+    <span id="HScore"></span>
+
+    <div id="container">
+        <img id="fishPlayer" width=100 height=60 src="./images/Characters/player-left.gif" style="left: 48%;top:49%;position: relative" />
     </div>
-    
-    
-    <audio id = "eat" type = "audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
-   
+
+
+    <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
+
     <script src="js/Fish.js"></script>
     <script src="js/EnemyFishesCreationAndMovement.js"></script>
-    <script src = "js/CollisionDetection.js"></script>
+    <script src="js/CollisionDetection.js"></script>
     <script src="js/scoreAndLevel.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
