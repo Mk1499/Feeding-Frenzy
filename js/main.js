@@ -79,25 +79,26 @@ function UpdateGameGrid() {
             alert("You Lost : Game Over");
             clearInterval(interval);
 
-            if (confirm("Play a gain ?"))
+            if (confirm("Play again ?"))
                 location.reload();
 
         }
 
     } else {
 
+        clearInterval(interval);
         lives--;
         for (let k = 0; k < fishEnemiesList.length; k++)
             container.removeChild(fishEnemiesList[k].element);
 
         fishEnemiesList = [];
-        clearInterval(interval);
         noCollision = true;
-        startGame();
         if (lives === 0)
             gameover = true;
+        
+        interval = setInterval(UpdateGameGrid, 20);
+     
     }
-
 
 }
 
@@ -105,13 +106,13 @@ let startGame = function () {
 
     playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
-    interval = setInterval(UpdateGameGrid, 20);
+    
 }
 
 let playUnderWater = function () {
     underWater.play();
 }
 
-sound = setInterval(playUnderWater, 2000);
-
-//startGame();
+startGame();
+interval = setInterval(UpdateGameGrid, 20);    
+sound = setInterval(playUnderWater, 4000);
