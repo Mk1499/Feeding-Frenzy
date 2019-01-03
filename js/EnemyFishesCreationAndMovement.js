@@ -6,7 +6,7 @@ let createEnemyFishes = function () {
 
         let rand = Math.floor(Math.random() * fishImages.length);
 
-        let rightFish = new Fish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
+        let rightFish = new EnemyFish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
             fishImages[rand].src, fishImages[rand].weight, "right");
 
         fishEnemiesList.push(rightFish);
@@ -14,7 +14,7 @@ let createEnemyFishes = function () {
 
         rand = Math.floor(Math.random() * fishImages.length);
 
-        let leftFish = new Fish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
+        let leftFish = new EnemyFish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
             fishImages[rand].src, fishImages[rand].weight, "left");
 
         fishEnemiesList.push(leftFish);

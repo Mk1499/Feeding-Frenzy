@@ -1,4 +1,5 @@
-let Fish = function (x, y, imgSrc, weight, direction) {
+
+let EnemyFish = function (x, y, imgSrc, weight, direction) {
 
     this.x = x;
     this.y = y;
@@ -14,7 +15,7 @@ let Fish = function (x, y, imgSrc, weight, direction) {
 
 };
 
-Fish.prototype.createFish = function () {
+EnemyFish.prototype.createFish = function () {
 
     this.element = document.createElement("img");
     this.element.src = this.imgSrc;
@@ -34,7 +35,7 @@ Fish.prototype.createFish = function () {
 
 }
 
-Fish.prototype.moveFishes = function () {
+EnemyFish.prototype.moveFishes = function () {
 
     if (this.direction === "left") {
         this.x -= this.speedX;

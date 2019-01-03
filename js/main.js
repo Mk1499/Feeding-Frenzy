@@ -1,20 +1,22 @@
+
 let score = 0;
 let level = 1;
-let lives = 30;
+let lives = 3;
 let foodTimer = 0;
 let gameover = false;
 let interval;
+let backgroundSound;
 let playerNumber;
+let containerBoundingRect;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let fishImages = [{ src: "shark.gif", weight: 1.7 }, { src: "gray_fish.gif", weight: 1.2 }, { src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
 let levelCompletionScores = [30, 30, 30];
-let noCollision = true;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
-let underWater = document.getElementById("underWater");
+let underWaterSound = document.getElementById("underWater");
 let scoreRecord = document.getElementById("score");
 let levelRecord = document.getElementById("level");
 let HScoreRecord = document.getElementById("HScore");
@@ -32,16 +34,16 @@ let levelDiv = document.getElementById('levelDiv');
 
 container.onmousemove = function (event) {
 
-    let rect = container.getBoundingClientRect();
+    containerBoundingRect = container.getBoundingClientRect();
 
-    if (parseInt(fishPlayer.style.left) < event.clientX - rect.left) {
+    if (parseInt(fishPlayer.style.left) < event.clientX - containerBoundingRect.left) {
         fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif"; // change right
-    } else if (parseInt(fishPlayer.style.left) > event.clientX - rect.left) {
+    } else if (parseInt(fishPlayer.style.left) > event.clientX - containerBoundingRect.left) {
         fishPlayer.src = "./images/Characters/player" + playerNumber + "-left.gif"; // change left
     }
 
-    fishPlayer.style.left = (event.clientX - rect.left) + 'px';
-    fishPlayer.style.top = (event.clientY - rect.top) + 'px';
+    fishPlayer.style.left = (event.clientX - containerBoundingRect.left) + 'px';
+    fishPlayer.style.top = (event.clientY - containerBoundingRect.top) + 'px';
 
 
     if (event.clientX >= window.innerWidth - fishPlayer.width) {
@@ -51,68 +53,59 @@ container.onmousemove = function (event) {
 
     if (event.clientY >= window.innerHeight - fishPlayer.height) {
 
-        fishPlayer.style.top = window.innerHeight - rect.top - fishPlayer.height + 'px';
+        fishPlayer.style.top = window.innerHeight - containerBoundingRect.top - fishPlayer.height + 'px';
     }
 
 };
 
-document.onkeydown = function (event){
+document.onkeydown = function (event) {
 
-    if(event.keyCode === 27)
-        if(!confirm("Continue Playing ?"))
+    if (event.keyCode === 27)
+        if (!confirm("Continue Playing ?"))
             location.reload();
 };
 
-function UpdateGameGrid() {
+let UpdateGameGrid = function () {
 
-    if (noCollision === true) {
+    CheckGameOver();
+    createEnemyFishes();
+    detectCollisionBetweenPlayerFishAndEnemyFishesV2();
+    detectCollisionBetweenEnemyFishes();
+    moveEnemyFishes();
+    scoreAndLevel();
+    adjustBoard(score, level, playerNumber, lives);
 
-        createEnemyFishes();
-        noCollision = detectCollisionBetweenPlayerFishAndEnemyFishesV2();
-        detectCollisionBetweenEnemyFishes();
-        moveEnemyFishes();
-        scoreAndLevel();
-        adjustBoard(score, level, playerNumber, lives);
-
-        if (gameover === true) {
-
-            alert("You Lost : Game Over");
-            clearInterval(interval);
-
-            if (confirm("Play again ?"))
-                location.reload();
-
-        }
-
-    } else {
-
-        clearInterval(interval);
-        lives--;
-        for (let k = 0; k < fishEnemiesList.length; k++)
-            container.removeChild(fishEnemiesList[k].element);
-
-        fishEnemiesList = [];
-        noCollision = true;
-        if (lives === 0)
-            gameover = true;
-        
-        interval = setInterval(UpdateGameGrid, 20);
-     
-    }
-
-}
+};
 
 let startGame = function () {
 
+    level = 1;
+    lives = 3;
+    score = 0
     playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
-    interval = setInterval(UpdateGameGrid, 20);     
-    sound = setInterval(playUnderWater, 4000);
-    
-}
+    interval = setInterval(UpdateGameGrid, 20);
 
-let playUnderWater = function () {
-    underWater.play();
-}
-  
-sound = setInterval(playUnderWater, 10000);
+};
+
+let CheckGameOver = function () {
+
+    if (lives === 0) {
+
+        alert("You Lost : Game Over");
+        clearInterval(interval);
+
+        if (confirm("Play again ?")) {
+
+            startGame();
+
+        }
+        else {
+
+            location.reload();
+        }
+    }
+
+};
+
+backgroundSound = setInterval(playUnderWaterSound, 10000);

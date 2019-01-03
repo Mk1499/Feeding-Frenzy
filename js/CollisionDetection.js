@@ -12,14 +12,15 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
 
                               if (fishPlayer.height < fishEnemiesList[i].height) {
 
-                                    boom(parseInt(fishPlayer.style.left) - fishPlayer.width, parseInt(fishPlayer.style.top));
+                                    boom();
 
-                                    noCollision = false;
+                                    resetTheGameAfterThePlayerFishDies();
+
 
                               } else {
 
                                     container.removeChild(fishEnemiesList[i].element);
-                                    playAudio();
+                                    playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
                               }
@@ -38,14 +39,15 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                               if (fishPlayer.height < fishEnemiesList[i].height) {
 
                                     fishEnemiesList[i].element.src = fishEnemiesList[i].imgSrc.replace("right", "left");
-                                    console.log(" element src " + fishEnemiesList[i].element.src);
-                                    boom(parseInt(fishPlayer.style.left) + fishPlayer.width, parseInt(fishPlayer.style.top));
-                                    noCollision = false;
+                                    boom();
+
+                                    resetTheGameAfterThePlayerFishDies();
+
 
                               } else {
 
                                     container.removeChild(fishEnemiesList[i].element);
-                                    playAudio();
+                                    playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
                               }
@@ -62,15 +64,15 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                               if (fishPlayer.height < fishEnemiesList[i].height) {
 
                                     fishEnemiesList[i].element.src = fishEnemiesList[i].imgSrc.replace("left", "right");
-                                    console.log(" element src " + fishEnemiesList[i].element.src);
-                                    boom(parseInt(fishPlayer.style.left) - fishPlayer.width, parseInt(fishPlayer.style.top));
 
-                                    noCollision = false;
+                                    boom();
+
+                                    resetTheGameAfterThePlayerFishDies();
 
                               } else {
 
                                     container.removeChild(fishEnemiesList[i].element);
-                                    playAudio();
+                                    playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
                               }
@@ -83,14 +85,14 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                               && parseInt(fishPlayer.style.top) <= fishEnemiesList[i].y + fishEnemiesList[i].height - 20) {
 
                               if (fishPlayer.height < fishEnemiesList[i].height) {
-                                    boom(parseInt(fishPlayer.style.left) + fishPlayer.width, parseInt(fishPlayer.style.top));
 
-                                    noCollision = false;
+                                    boom();
+                                    resetTheGameAfterThePlayerFishDies();
 
                               } else {
 
                                     container.removeChild(fishEnemiesList[i].element);
-                                    playAudio();
+                                    playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
                               }
@@ -101,18 +103,16 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
             }
       }
 
-      return noCollision;
-
 };
 
-let boom = function (x, y) {
+let boom = function () {
 
       bom.src = "./images/Box_And_Boom/BOOOM.gif";
-      bom.height = 150;
-      bom.width = 150;
+      bom.height = 300;
+      bom.width = 300;
       bom.style.position = "absolute";
-      bom.style.left = x + "px";
-      bom.style.top = y + "px";
+      bom.style.left = parseInt(fishPlayer.style.left) - containerBoundingRect.left + "px";
+      bom.style.top = parseInt(fishPlayer.style.top) - containerBoundingRect.top + "px";
 
       console.log("BOOOM : " + parseInt(bom.style.left) + " " + parseInt(bom.style.top));
       container.appendChild(bom);
@@ -120,20 +120,26 @@ let boom = function (x, y) {
 
 };
 
-let wait = function (ms) {
+let resetTheGameAfterThePlayerFishDies = function () {
 
-      var start = new Date().getTime();
-      var end = start;
+      lives--;
+      fishPlayer.style.display = "none";
+      clearInterval(interval);
 
-      while (end < start + ms) {
+      setTimeout(() => {
 
-            end = new Date().getTime();
+            for (let i = 0; i < fishEnemiesList.length; i++)
+                  container.removeChild(fishEnemiesList[i].element);
 
-      }
-};
+            fishEnemiesList = [];
+            fishPlayer.style.display = "block";
+            fishPlayer.style.left = window.innerWidth / 2;
+            fishPlayer.style.top = window.innerHeight / 2;
+            interval = setInterval(UpdateGameGrid, 20);
 
-let playAudio = function () {
-      eatSound.play();
+
+      }, 1000);
+
 };
 
 /**********************************
@@ -160,7 +166,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                    if (fishPlayer.height >= fishEnemiesList[i].height) {
  
                          container.removeChild(fishEnemiesList[i].element);
-                         playAudio();
+                         playEatingSound();
                          score++;
                          fishEnemiesList.splice(i, 1);
                    }
@@ -189,7 +195,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                         if (fishPlayer.height >= fishEnemiesList[i].height) {
 
                               container.removeChild(fishEnemiesList[i].element);
-                              playAudio();
+                              playEatingSound();
                               score++;
                               fishEnemiesList.splice(i, 1);
                         }
@@ -213,7 +219,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                         if (fishPlayer.height >= fishEnemiesList[i].height) {
 
                               container.removeChild(fishEnemiesList[i].element);
-                              playAudio();
+                              playEatingSound();
                               score++;
                               fishEnemiesList.splice(i, 1);
                         }
