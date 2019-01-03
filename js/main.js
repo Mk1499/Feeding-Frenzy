@@ -75,12 +75,14 @@ function UpdateGameGrid() {
         adjustBoard(score, level, playerNumber, lives);
 
         if (gameover === true) {
+            document.write("<div><img style='height:400px;width:700px;margin-left:180px;' src='Div/GameOver/Gameover.png'><br/><button style='width:300px;margin-left:440px;background-color:black;'  id='playAgain'><img width='100%' src='Div/Menu/play.png' ></button></div>");
+            var playAgainBtn=document.getElementById("playAgain");
+            playAgainBtn.addEventListener("click",function(){
+                window.location="index.html";
 
-            alert("You Lost : Game Over");
+            } );
             clearInterval(interval);
 
-            if (confirm("Play again ?"))
-                location.reload();
 
         }
 
@@ -102,9 +104,9 @@ function UpdateGameGrid() {
 
 }
 
-let startGame = function () {
+let startGame = function (charNum) {
 
-    playerNumber = 1;
+    playerNumber = charNum;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     
 }

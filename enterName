@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Feeding Frenzy </title>
+
+    <link rel="icon" tybe="image/x-icon" href="images/dumy_fish.gif">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+	
+    <video playsinline autoplay muted loop>
+        
+
+        <source src="videos/background.webm" type="video/webm">
+        <source src="videos/background.mp4" type="video/mp4">
+
+    </video>
+
+    <section id="start" class="text-center animated ">
+            <img src="Div/Welcome/logo.png" width="40%" >
+            <br>
+             <h3 style="margin-left: 20px;color: black;">Enter Your Name:</h3>
+            <input style="margin-left: 10px;" id="nameEnter" type="text">
+            <br/>
+            <br/>
+            <button  name="nameBtn" id="btnGame" type="submit" onclick="clic(1)" style="width: 100px;margin-left: 20px;" class="btn btn-primary">Ok</button>
+    
+        </section>
+    
+
+    <div id='board'>
+        <div id='scoreDiv'>
+            <img src='images/Header Content/Score.png' id='scoreImg'></img>
+            <div id='scoreNumDiv'>
+                <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+                <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+                <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+                <img class='scoreNum' src='images/Characters/numbers/0-blue.png'></img>
+            </div>
+        </div>
+
+        <div id='growthDiv'>
+            <img src='images/Header Content/Growth.png' id='growthImg'></img>
+            <div id='growthBarTotal'>
+                <div id='growthBarActual'></div>
+            </div>
+        </div>
+
+        <div id='levelDiv'>
+            <img src='images/Header Content/Level.png' id='levelImg'></img>
+            <img id='levelNum' src='images/Characters/numbers/1-blue.png'></img>
+        </div>
+
+        <div id='liveDiv'>
+            <img id='charImg'></img>
+            <div id='liveNumDiv'>
+                <img class='liveNum' src='images/Characters/numbers/0-blue.png'></img>
+                <img class='liveNum' src='images/Characters/numbers/0-blue.png'></img>
+            </div>
+        </div>
+
+    </div>
+    <div id="container">
+        <img id="fishPlayer" width=100 height=60 src="./images/Characters/player-left.gif" style="left: 48%;top:49%;position: relative" />
+    </div>
+
+
+    <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
+
+    <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <script src="js/Fish.js"></script>
+    <script src="js/EnemyFishesCreationAndMovement.js"></script>
+    <script src="js/CollisionDetection.js"></script>
+    <script src="js/scoreAndLevel.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/start.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/selection.js"></script>
+</body>
+
+</html>
