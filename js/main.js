@@ -1,6 +1,6 @@
 let score = 0;
 let level = 1;
-let lives = 3;
+let lives = 30;
 let foodTimer = 0;
 let gameover = false;
 let interval;
@@ -8,7 +8,7 @@ let playerNumber;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let fishImages = [{ src: "shark.gif", weight: 1.7 }, { src: "gray_fish.gif", weight: 1.2 }, { src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
-let levelCompletionScores = [20, 50, 80];
+let levelCompletionScores = [30, 30, 30];
 let noCollision = true;
 
 let fishPlayer = document.getElementById("fishPlayer");
@@ -68,7 +68,7 @@ function UpdateGameGrid() {
     if (noCollision === true) {
 
         createEnemyFishes();
-        noCollision = detectCollisionBetweenPlayerFishAndEnemyFishes();
+        noCollision = detectCollisionBetweenPlayerFishAndEnemyFishesV2();
         detectCollisionBetweenEnemyFishes();
         moveEnemyFishes();
         scoreAndLevel();
@@ -106,13 +106,11 @@ let startGame = function () {
 
     playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
-    
+    interval = setInterval(UpdateGameGrid, 20);  
 }
 
 let playUnderWater = function () {
     underWater.play();
 }
-
-startGame();
-interval = setInterval(UpdateGameGrid, 20);    
-sound = setInterval(playUnderWater, 4000);
+  
+sound = setInterval(playUnderWater, 10000);
