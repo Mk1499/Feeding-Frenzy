@@ -106,7 +106,9 @@ let startGame = function () {
 
     playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
-    interval = setInterval(UpdateGameGrid, 20);  
+    interval = setInterval(UpdateGameGrid, 20);     
+    sound = setInterval(playUnderWater, 4000);
+    
 }
 
 let playUnderWater = function () {
