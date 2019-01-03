@@ -14,14 +14,10 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css">
     
-
-
 </head>
 
 <body>
-
-
-
+	
     <video playsinline autoplay muted loop>
         
 
@@ -33,8 +29,14 @@
     <section id="start" class="text-center animated ">
             <img src="Div/Welcome/logo.png" width="40%" >
             <br>
-            <button class="transperant-btn" onclick="startGame() , up()">
-                <img src="Div/Welcome/Start.png" width="40%">
+            <button class="transperant-btn" onclick="characterSeLe(1);">
+                <img src="images/Characters/player1-right.gif" width="40%">
+            </button>
+            <button class="transperant-btn" onclick="characterSeLe(2);">
+                <img src="images/Characters/player2-right.gif" width="40%">
+            </button>
+            <button class="transperant-btn" onclick="characterSeLe(3);">
+                <img src="images/Characters/player3-right.gif" width="40%">
             </button>
     
         </section>
@@ -80,7 +82,6 @@
     <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
 
     <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
-
     <script src="js/Fish.js"></script>
     <script src="js/EnemyFishesCreationAndMovement.js"></script>
     <script src="js/CollisionDetection.js"></script>
@@ -88,6 +89,7 @@
     <script src="js/board.js"></script>
     <script src="js/start.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/selection.js"></script>
 </body>
 
 </html>
