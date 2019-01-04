@@ -114,7 +114,6 @@ let boom = function () {
       bom.style.left = parseInt(fishPlayer.style.left) - containerBoundingRect.left + "px";
       bom.style.top = parseInt(fishPlayer.style.top) - containerBoundingRect.top + "px";
 
-      console.log("BOOOM : " + parseInt(bom.style.left) + " " + parseInt(bom.style.top));
       container.appendChild(bom);
       setTimeout(() => container.removeChild(bom), 1000);
 
@@ -134,8 +133,6 @@ let resetTheGameAfterThePlayerFishDies = function () {
 
             fishEnemiesList = [];
             fishPlayer.style.display = "block";
-            fishPlayer.style.left = window.innerWidth / 2;
-            fishPlayer.style.top = window.innerHeight / 2;
             interval = setInterval(UpdateGameGrid, 20);
 
 
