@@ -259,7 +259,8 @@ let detectCollisionBetweenEnemyFishes = function () {
                               && fishEnemiesList[i].weight != fishEnemiesList[j].weight) {
 
                               if (fishEnemiesList[j].x - fishEnemiesList[i].x <= fishEnemiesList[i].width
-                                    && fishEnemiesList[i].y === fishEnemiesList[j].y
+                                    && fishEnemiesList[i].y >= fishEnemiesList[j].y - fishEnemiesList[i].height + (fishEnemiesList[i].height * 0.3)
+                                    && fishEnemiesList[i].y <= fishEnemiesList[j].y + fishEnemiesList[j].height - (fishEnemiesList[i].height * 0.3)
                                     && fishEnemiesList[i].x > 0
                                     && fishEnemiesList[i].x <= window.innerWidth + fishEnemiesList[i].width
                                     && fishEnemiesList[j].x > 0
