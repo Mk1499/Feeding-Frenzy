@@ -1,7 +1,8 @@
 let lod=document.getElementById("load");
 
 let loaderOut = function () {
-  lod.classList.add("fadeOut") ; 
+  lod.classList.add("fadeOut") ;
+  lod.style.display = "none" ;  
 }
 
 
@@ -11,4 +12,4 @@ setTimeout(
     loaderOut() ; 
     })
 
-, 1000)  ; 
+, 5000)  ; 

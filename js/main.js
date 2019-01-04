@@ -31,6 +31,9 @@ let growthDiv = document.getElementById('growthDiv');
 let liveDiv = document.getElementById('liveDiv');
 let levelDiv = document.getElementById('levelDiv');
 
+let setPlayerNumber = function (num){
+    playerNumber = num ; 
+}
 
 container.onmousemove = function (event) {
 
@@ -82,7 +85,7 @@ let startGame = function () {
     level = 1;
     lives = 3;
     score = 0
-    playerNumber = 1;
+    //playerNumber = num;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     interval = setInterval(UpdateGameGrid, 20);
 
