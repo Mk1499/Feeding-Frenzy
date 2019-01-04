@@ -1,31 +1,29 @@
 
 let scoreAndLevel = function () {
 
-    if (score === 0) {
+    if (score - ((level-1) * 30)  === 0) {
 
         fishPlayer.height = 60;
         fishPlayer.width = 100;
     }
-    else if (score === 10) {
+    else if (score - ((level-1) * 30) === 10) {
 
         fishPlayer.height = 60 * 1.3;
         fishPlayer.width = 100 * 1.3;
     }
-
-    else if (score === 20) {
+    else if (score - ((level-1) * 30)  === 20) {
 
         fishPlayer.height = 60 * 1.5;
         fishPlayer.width = 100 * 1.5;
     }
-    else if (score === 30) {
+    else if (score - ((level-1) * 30) === 30) {
 
         level++;
-        score = 0;
         addNewEnemyFish();
         playLevelUpSound();
     }
 
-    if ((score + (level * 10)) > localStorage.getItem("HScore"))
+    if (score > localStorage.getItem("HScore"))
         localStorage.setItem("HScore", score);
 }
 
