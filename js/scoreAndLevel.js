@@ -53,13 +53,13 @@ let showLevelUpNotificationImage = function () {
 
     levelSign.src = "./images/Levels/level" + level + ".png";
     levelSign.height = 150;
-    levelSign.width = 150;
+    levelSign.width = 250;
     levelSign.style.position = "absolute";
-    levelSign.style.left = window.innerWidth/2 - 150 + "px";
-    levelSign.style.top = window.innerHeight/2 - 150 + "px";
+    levelSign.style.left = window.innerWidth/2 - 125 + "px";
+    levelSign.style.top = window.innerHeight/2 - 75 + "px";
     
     container.appendChild(levelSign);
 
-    setTimeout(() => container.removeChild(levelSign), 1000);
+    setTimeout(() => container.removeChild(levelSign), 2000);
 
 };
