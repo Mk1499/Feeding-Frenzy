@@ -3,6 +3,11 @@ let score = 0;
 let level = 1;
 let lives = 3;
 let foodTimer = 0;
+let randomMotionTimer=[];
+let randomMotionCompletion=[];
+let randomMotionTimerY=[];
+let randomMotionCompletionY=[];
+let verticalDirections=["top","down"];
 let gameover = false;
 let interval;
 let backgroundSound;
@@ -69,6 +74,7 @@ let UpdateGameGrid = function () {
 
     CheckGameOver();
     createEnemyFishes();
+    updateRandomMotion();
     detectCollisionBetweenPlayerFishAndEnemyFishesV2();
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();

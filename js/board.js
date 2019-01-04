@@ -10,8 +10,7 @@ function adjustBoard(score, level, charID, lives) {
     score = (score - (score % 10)) / 10;
   }
   charImg.src = 'images/Characters/player' + charID + "-right.gif";
-  charImg.width = 60;
-  charImg.height = 27;
+  
   let j = liveNumArr.length - 1;
   while (lives > 0) {
     liveNumArr[j].src = 'images/Characters/numbers/' + (lives % 10) + '-blue.png';

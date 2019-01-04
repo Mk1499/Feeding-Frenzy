@@ -7,18 +7,21 @@ let createEnemyFishes = function () {
         let rand = Math.floor(Math.random() * fishImages.length);
 
         let rightFish = new EnemyFish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
-            fishImages[rand].src, fishImages[rand].weight, "right");
+            fishImages[rand].src, fishImages[rand].weight, "right",verticalDirections[Math.round(Math.random())]);
+
 
         fishEnemiesList.push(rightFish);
         rightFish.createFish();
+        pushNewFishRandomMotion();
 
         rand = Math.floor(Math.random() * fishImages.length);
 
         let leftFish = new EnemyFish(0, fishEntryPositions[Math.floor(Math.random() * fishEntryPositions.length)],
-            fishImages[rand].src, fishImages[rand].weight, "left");
+            fishImages[rand].src, fishImages[rand].weight, "left",verticalDirections[Math.round(Math.random())]);
 
         fishEnemiesList.push(leftFish);
         leftFish.createFish();
+        pushNewFishRandomMotion();
 
         foodTimer = 0;
     }
@@ -33,6 +36,7 @@ let moveEnemyFishes = function () {
             || fishEnemiesList[i].x > window.innerWidth + fishEnemiesList[i].width) {
             container.removeChild(fishEnemiesList[i].element);
             fishEnemiesList.splice(i, 1);
+            removeFishRandomMotion(i);
         }
     }
 
