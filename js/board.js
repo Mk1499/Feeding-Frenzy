@@ -1,7 +1,7 @@
 
 let adjustBoard = function (score, level, charID, lives) {
 
-  growthBarActual.style.width = ((score - (level-1) * 30)  / levelCompletionScores[level - 1] * 100) + '%';
+  growthBarActual.style.width = ((score - (level-1) * 30)  / 30 * 100) + '%';
 
   let i = scoreNumArr.length - 1;
 

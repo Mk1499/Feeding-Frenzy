@@ -1,12 +1,18 @@
-let lod=document.getElementById("load");
+
+let lod = document.getElementById("load");
 
 let loaderOut = function () {
-  lod.classList.add("fadeOutUp") ;
- // lod.style.display = "none" ;  
+  
+  lod.classList.add("fadeOutUp");
+
 }
 
-document.readyState(
-window.setTimeout(
-  
-  loaderOut() , 50000)   
-)
+document.onreadystatechange = function () {
+
+  if (document.readyState === 'complete') {
+
+    loaderOut();
+
+  }
+
+}
