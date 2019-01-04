@@ -3,6 +3,7 @@ let displayGameOver = function (){
     gameOverDiv.style.zIndex = 999 ; 
     gameOverDiv.classList.remove("bounceOutUp") ;
     gameOverDiv.classList.add("bounceInDown") ; 
+    GOSound.play() ; 
 
 }
 let gameOverUp = function () {

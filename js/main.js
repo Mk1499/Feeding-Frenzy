@@ -22,6 +22,7 @@ let dyingSound = document.getElementById("die");
 let levelUpSound = document.getElementById("level");
 let underWaterSound = document.getElementById("underWater");
 let sizeUpSound = document.getElementById("sizeUp") ; 
+let GOSound = document.getElementById("gameOverSound") ; 
 let gameOverDiv = document.getElementById("gameOver") ; 
 let scoreRecord = document.getElementById("score");
 let levelRecord = document.getElementById("level");
