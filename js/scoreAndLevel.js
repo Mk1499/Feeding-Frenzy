@@ -22,6 +22,7 @@ let scoreAndLevel = function () {
         level++;
         score = 0;
         addNewEnemyFish();
+        playLevelUpSound();
     }
 
     if ((score + (level * 10)) > localStorage.getItem("HScore"))

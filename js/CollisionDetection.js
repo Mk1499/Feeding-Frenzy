@@ -125,7 +125,8 @@ let resetTheGameAfterThePlayerFishDies = function () {
       lives--;
       fishPlayer.style.display = "none";
       clearInterval(interval);
-
+      playdyingSound();
+      
       setTimeout(() => {
 
             for (let i = 0; i < fishEnemiesList.length; i++)
