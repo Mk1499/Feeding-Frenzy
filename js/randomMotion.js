@@ -18,7 +18,7 @@ for (let i=0;i<randomMotionTimer.length;i++){
       if (randomMotionTimerY[i]>=randomMotionCompletionY[i]){
         randomMotionTimerY[i]=0;
         randomMotionCompletionY[i]=Math.floor(Math.random() * 201)+100;
-        if (fishEnemiesList[i].directionVertical=="top")
+        if (fishEnemiesList[i].directionVertical==="top")
             fishEnemiesList[i].directionVertical="down";
         else
             fishEnemiesList[i].directionVertical="top";
@@ -33,9 +33,9 @@ randomMotionTimerY.push(0);
 randomMotionCompletionY.push(Math.floor(Math.random() * 201)+100);
 }
 
-let removeFishRandomMotion=function(i){
-    randomMotionTimer.splice(i, 1);
-    randomMotionCompletion.splice(i, 1);
-    randomMotionTimerY.splice(i, 1);
-    randomMotionCompletionY.splice(i, 1);
+let removeFishRandomMotion=function(k){
+    randomMotionTimer.splice(k, 1);
+    randomMotionCompletion.splice(k, 1);
+    randomMotionTimerY.splice(k, 1);
+    randomMotionCompletionY.splice(k, 1);
 }

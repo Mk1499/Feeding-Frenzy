@@ -129,7 +129,7 @@ let resetTheGameAfterThePlayerFishDies = function () {
       fishPlayer.style.display = "none";
       clearInterval(interval);
       playdyingSound();
-      
+
       setTimeout(() => {
 
             for (let i = 0; i < fishEnemiesList.length; i++)
@@ -138,6 +138,8 @@ let resetTheGameAfterThePlayerFishDies = function () {
             fishEnemiesList = [];
             randomMotionTimer=[];
             randomMotionCompletion=[];
+            randomMotionTimerY=[];
+            randomMotionCompletionY=[];
             fishPlayer.style.display = "block";
             interval = setInterval(UpdateGameGrid, 20);
 
@@ -202,6 +204,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                               playEatingSound();
                               score++;
                               fishEnemiesList.splice(i, 1);
+                              removeFishRandomMotion(i);
                         }
                         else {
                               noCollision = false;
@@ -226,6 +229,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                               playEatingSound();
                               score++;
                               fishEnemiesList.splice(i, 1);
+                              removeFishRandomMotion(i);
                         }
                         else {
                               noCollision = false;
@@ -257,8 +261,8 @@ let detectCollisionBetweenEnemyFishes = function () {
                               && fishEnemiesList[i].weight != fishEnemiesList[j].weight) {
 
                               if (fishEnemiesList[j].x - fishEnemiesList[i].x <= fishEnemiesList[i].width
-                                    && fishEnemiesList[i].y >= fishEnemiesList[j].y - fishEnemiesList[i].height + (fishEnemiesList[i].height * 0.3)
-                                    && fishEnemiesList[i].y <= fishEnemiesList[j].y + fishEnemiesList[j].height - (fishEnemiesList[i].height * 0.3)
+                                    && fishEnemiesList[i].y == fishEnemiesList[j].y - fishEnemiesList[i].height + (fishEnemiesList[i].height * 0.3)
+                                    && fishEnemiesList[i].y == fishEnemiesList[j].y + fishEnemiesList[j].height - (fishEnemiesList[i].height * 0.3)
                                     && fishEnemiesList[i].x > 0
                                     && fishEnemiesList[i].x <= window.innerWidth + fishEnemiesList[i].width
                                     && fishEnemiesList[j].x > 0
@@ -271,12 +275,14 @@ let detectCollisionBetweenEnemyFishes = function () {
                                     if (fishEnemiesList[i].weight > fishEnemiesList[j].weight) {
                                           container.removeChild(fishEnemiesList[j].element);
                                           fishEnemiesList.splice(j, 1);
+                                          removeFishRandomMotion(i);
 
 
                                     }
                                     else if (fishEnemiesList[i].weight < fishEnemiesList[j].weight) {
                                           container.removeChild(fishEnemiesList[i].element);
                                           fishEnemiesList.splice(i, 1);
+                                          removeFishRandomMotion(i);
 
                                     }
 
