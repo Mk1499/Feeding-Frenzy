@@ -5,5 +5,8 @@ let loaderOut = function () {
  // lod.style.display = "none" ;  
 }
 
-
-window.setTimeout( loaderOut() , 50000)  ; 
+document.readyState(
+window.setTimeout(
+  
+  loaderOut() , 50000)   
+)
