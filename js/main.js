@@ -22,6 +22,7 @@ let dyingSound = document.getElementById("die");
 let levelUpSound = document.getElementById("level");
 let underWaterSound = document.getElementById("underWater");
 let sizeUpSound = document.getElementById("sizeUp") ; 
+let gameOverDiv = document.getElementById("gameOver") ; 
 let scoreRecord = document.getElementById("score");
 let levelRecord = document.getElementById("level");
 let HScoreRecord = document.getElementById("HScore");
@@ -100,10 +101,11 @@ let CheckGameOver = function () {
 
     if (lives === 0) {
 
-        alert("You Lost : Game Over");
-        clearInterval(interval);
+       // alert("You Lost : Game Over");
+       displayGameOver() ;  
+       clearInterval(interval);
 
-        if (confirm("Play again ?")) {
+       /* if (confirm("Play again ?")) {
 
             startGame();
 
@@ -111,7 +113,7 @@ let CheckGameOver = function () {
         else {
 
             location.reload();
-        }
+        }*/
     }
 
 };

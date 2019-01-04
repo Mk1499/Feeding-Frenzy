@@ -38,15 +38,13 @@
     <section id="start" class="text-center animated ">
             <img src="Div/Welcome/logo.png" width="40%" >
             <br>
-            <button class="transperant-btn" onclick="up(),setPlayerNumber(1),startGame()">
-                <img src="images/Characters/player1-right.gif" width="40%">
+            <button class="transperant-btn" onclick="selectUp(),setPlayerNumber(1),startGame()">
+                <img src="Div/Select/Char1.png" width="40%">
             </button>
-            <button class="transperant-btn" onclick="up(),setPlayerNumber(2),startGame()">
-                <img src="images/Characters/player2-right.gif" width="40%">
+            <button class="transperant-btn" onclick="selectUp(),setPlayerNumber(3),startGame()">
+                <img src="Div/Select/Char2.png" width="40%">
             </button>
-            <button class="transperant-btn" onclick="up(),setPlayerNumber(3),startGame()">
-                <img src="images/Characters/player3-right.gif" width="40%">
-            </button>
+           
     
         </section>
     
@@ -83,12 +81,21 @@
         </div>
 
     </div>
+
+    <div id ="gameOver" class="gameOver animated">
+            <img src='Div/GameOver/Gameover.png'>
+            <br/>
+            <button id='playAgain' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
+            </button>
+        </div>
+        
     <div id="container">
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player-left.gif" style="left: 48%;top:49%;position: relative" />
     </div>
 
+    
 
-    <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;" ></audio>
     <audio id="die" type="audio/wav" src="sound/die.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="level" type="audio/wav" src="sound/levelUp.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
@@ -101,6 +108,7 @@
     <script src="js/scoreAndLevel.js"></script>
     <script src="js/board.js"></script>
     <script src="js/start.js"></script>
+    <script src="js/gameOver.js"></script>
     <script src="js/selection.js"></script>
     <script src="js/load.js"></script>
     <script src="js/main.js"></script>
