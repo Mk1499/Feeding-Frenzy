@@ -1,8 +1,11 @@
 
+
+
 let scoreAndLevel = function () {
-
+   
     if (score - ((level-1) * 30)  === 0) {
-
+        playedBefore1 = false ;
+        playedBefore2 = false ;
         fishPlayer.height = 60;
         fishPlayer.width = 100;
     }
@@ -10,11 +13,14 @@ let scoreAndLevel = function () {
 
         fishPlayer.height = 60 * 1.3;
         fishPlayer.width = 100 * 1.3;
+        sizeSound1() ; 
     }
     else if (score - ((level-1) * 30)  === 20) {
 
         fishPlayer.height = 60 * 1.5;
         fishPlayer.width = 100 * 1.5;
+        
+        sizeSound2() ;
     }
     else if (score - ((level-1) * 30) === 30) {
 
