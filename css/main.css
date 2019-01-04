@@ -38,7 +38,7 @@
     background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
     background-size: cover ; 
     color: #fff ;
-    z-index: 999;
+    z-index: 666;
     height: 100%;
     animation-delay: 0.5s ; 
     animation-duration: 2s; 

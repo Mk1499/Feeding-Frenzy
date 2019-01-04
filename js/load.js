@@ -1,7 +1,7 @@
 let lod=document.getElementById("load");
 
 let loaderOut = function () {
-  lod.classList.add("fadeOutUp") ; 
+  lod.classList.add("fadeOut") ; 
 }
 
 
