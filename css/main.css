@@ -50,3 +50,18 @@
     
     
 }
+#gameOver{
+  z-index: -150;
+  display: none ; 
+}
+.gameOver img {
+  width:80%;
+  margin-left:10%;
+}
+
+.gameOver button {
+  /*width:300px;*/
+  margin-left:23%;
+  border : 0px;   
+  background-color:transparent;
+}
