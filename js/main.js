@@ -17,11 +17,18 @@ let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let fishImages = [{ src: "shark.gif", weight: 1.7 }, { src: "gray_fish.gif", weight: 1.2 }, { src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
 let levelCompletionScores = [30, 30, 30];
+let playedBefore1 = false;
+let playedBefore2 = false;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
 let eatSound = document.getElementById("eat");
+let dyingSound = document.getElementById("die");
+let levelUpSound = document.getElementById("level");
 let underWaterSound = document.getElementById("underWater");
+let sizeUpSound = document.getElementById("sizeUp");
+let GOSound = document.getElementById("gameOverSound");
+let gameOverDiv = document.getElementById("gameOver");
 let scoreRecord = document.getElementById("score");
 let levelRecord = document.getElementById("level");
 let HScoreRecord = document.getElementById("HScore");
@@ -36,6 +43,9 @@ let growthDiv = document.getElementById('growthDiv');
 let liveDiv = document.getElementById('liveDiv');
 let levelDiv = document.getElementById('levelDiv');
 
+let setPlayerNumber = function (num) {
+    playerNumber = num;
+}
 
 container.onmousemove = function (event) {
 
@@ -88,8 +98,8 @@ let startGame = function () {
     level = 1;
     lives = 3;
     score = 0
-    playerNumber = 1;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
+    showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
 
 };
@@ -98,18 +108,9 @@ let CheckGameOver = function () {
 
     if (lives === 0) {
 
-        alert("You Lost : Game Over");
+        displayGameOver();
         clearInterval(interval);
 
-        if (confirm("Play again ?")) {
-
-            startGame();
-
-        }
-        else {
-
-            location.reload();
-        }
     }
 
 };

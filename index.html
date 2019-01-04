@@ -11,8 +11,9 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 
 
 
@@ -20,6 +21,10 @@
 
 <body>
 
+        <div id="load" class="text-center animated">
+                <img src="Div/Welcome/logo.png" width="40%" >
+                <div id="loader"> </div>
+        </div>
 
 
     <video playsinline autoplay muted loop>
@@ -33,9 +38,13 @@
     <section id="start" class="text-center animated ">
             <img src="Div/Welcome/logo.png" width="40%" >
             <br>
-            <button class="transperant-btn" onclick="startGame() , up()">
-                <img src="Div/Welcome/Start.png" width="40%">
+            <button class="transperant-btn" onclick="selectUp(),setPlayerNumber(1),startGame()">
+                <img src="Div/Select/Char1.png" width="40%">
             </button>
+            <button class="transperant-btn" onclick="selectUp(),setPlayerNumber(3),startGame()">
+                <img src="Div/Select/Char2.png" width="40%">
+            </button>
+
 
         </section>
 
@@ -72,22 +81,36 @@
         </div>
 
     </div>
+
+    <div id ="gameOver" class="gameOver animated">
+            <img src='Div/GameOver/Gameover.png'>
+            <br/>
+            <button id='playAgain' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
+            </button>
+        </div>
+
     <div id="container">
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player-left.gif" style="left: 48%;top:49%;position: relative" />
     </div>
 
 
-    <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;"></audio>
 
+    <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;" ></audio>
+    <audio id="die" type="audio/wav" src="sound/die.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <audio id="level" type="audio/wav" src="sound/levelUp.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <audio id="sizeUp" type="audio/wav" src="sound/size_up.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <audio id="gameOverSound" type="audio/wav" src="sound/GameOver.wav" preload="auto" controls="none" style="display: none;"></audio>
 
     <script src="js/EnemyFish.js"></script>
     <script src="js/Sound.js"></script>
     <script src="js/EnemyFishesCreationAndMovement.js"></script>
-    <script src="js/CollisionDetection.js"></script>
     <script src="js/scoreAndLevel.js"></script>
+    <script src="js/CollisionDetection.js"></script>
     <script src="js/board.js"></script>
     <script src="js/start.js"></script>
+    <script src="js/gameOver.js"></script>
+    <script src="js/load.js"></script>
     <script src="js/randomMotion.js"></script>
     <script src="js/main.js"></script>
 </body>
