@@ -11,7 +11,6 @@ let containerBoundingRect;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
 let fishImages = [{ src: "shark.gif", weight: 1.7 }, { src: "gray_fish.gif", weight: 1.2 }, { src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
-let levelCompletionScores = [30, 30, 30];
 let playedBefore1 = false;
 let playedBefore2 = false;
 
