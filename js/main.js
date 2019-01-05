@@ -8,6 +8,12 @@ let randomMotionCompletion=[];
 let randomMotionTimerY=[];
 let randomMotionCompletionY=[];
 let verticalDirections=["top","down"];
+let seaStarTimer=0;
+let seaStarTimerMax=Math.floor(Math.random() * 501)+500;
+let seaStarPositionX;
+let seaStarPositionY=0;
+let seaStarMovingFlag=false;
+let seaStarNum=0;
 let gameover = false;
 let interval;
 let backgroundSound;
@@ -49,6 +55,8 @@ let scoreDiv = document.getElementById('scoreDiv');
 let growthDiv = document.getElementById('growthDiv');
 let liveDiv = document.getElementById('liveDiv');
 let levelDiv = document.getElementById('levelDiv');
+let seaStarObj = document.getElementById('seaStar');
+let seaStarImgNum=document.getElementById('seaStarNum');
 
 let setPlayerNumber = function (num) {
     playerNumber = num;
@@ -92,11 +100,13 @@ let UpdateGameGrid = function () {
     CheckGameOver();
     createEnemyFishes();
     updateRandomMotion();
+    seaStarMotion();
     detectCollisionBetweenPlayerFishAndEnemyFishesV2();
     detectCollisionBetweenEnemyFishes();
+    detectCollisionBetweenPlayerFishAndSeaStar(fishPlayer,seaStarObj);
     moveEnemyFishes();
     scoreAndLevel();
-    adjustBoard(score, level, playerNumber, lives);
+    adjustBoard(score, level, playerNumber, lives,seaStarNum);
 
 };
 

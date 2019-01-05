@@ -177,3 +177,31 @@ html, body {width:100%;height:100%;margin:0;padding: 0px;overflow:hidden}
  margin-left: 6.666%;
  margin-right: 6.666%;
 }
+
+#seaStar{
+position:absolute;
+top:0px;
+display: none;
+height:50px;
+width:50px;
+}
+
+#seaStarDiv{
+  position:absolute;
+  width:10%;
+  height:40%;
+  display: inline-block;
+  left:0%;
+  top:45%;
+}
+#seaStarImg{
+    height:100%;
+    width:30%;
+    float: left;
+}
+ #seaStarNum{
+   height:100%;
+   width:20%;
+   float: right;
+   margin-right:46%;
+ }

@@ -30,4 +30,5 @@ let adjustBoard = function (score, level, charID, lives) {
   }
 
   levelNum.src = 'images/Characters/numbers/' + level + '-blue.png';
+  seaStarImgNum.src='images/Characters/numbers/' + (seaStarNum % 6) + '-blue.png';
 }

@@ -299,3 +299,14 @@ let detectCollisionBetweenEnemyFishes = function () {
       }
 
 };
+
+function detectCollisionBetweenPlayerFishAndSeaStar(dragMe, rect){
+  var object_1 = dragMe.getBoundingClientRect();
+  var object_2 = rect.getBoundingClientRect();
+
+  if (object_1.left < object_2.left + object_2.width  && object_1.left + object_1.width  > object_2.left &&
+		object_1.top < object_2.top + object_2.height && object_1.top + object_1.height > object_2.top) {
+    bonusAdd();
+  }
+
+}

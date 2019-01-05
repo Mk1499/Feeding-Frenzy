@@ -1,6 +1,11 @@
 
 let scoreAndLevel = function () {
 
+    if (seaStarNum===5){
+      lives++;
+      seaStarNum=0;
+    }
+
     if (score - ((level - 1) * 30) === 0) {
         playedBefore1 = false;
         playedBefore2 = false;
