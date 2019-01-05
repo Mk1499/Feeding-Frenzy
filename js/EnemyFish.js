@@ -10,7 +10,7 @@ let EnemyFish = function (x, y, imgSrc, weight, direction,directionVertical) {
     this.directionVertical=directionVertical;
     this.weight = weight;
     this.speedX = 3 * level;
-    this.speedY = 0.5*level;
+    this.speedY = 0.3*level;
     this.element;
 
 

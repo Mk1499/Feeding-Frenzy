@@ -1,6 +1,10 @@
 
 let adjustBoard = function (score, level, charID, lives) {
 
+  fishMenu[0].src='images/Enemies/right/'+fishImages["level"+level][0];
+  fishMenu[1].src='images/Enemies/right/'+fishImages["level"+level][1];
+  fishMenu[2].src='images/Enemies/right/'+fishImages["level"+level][2];
+
   growthBarActual.style.width = ((score - (level-1) * 30)  / 30 * 100) + '%';
 
   let i = scoreNumArr.length - 1;
