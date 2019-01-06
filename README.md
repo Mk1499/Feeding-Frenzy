@@ -7,5 +7,5 @@ You Can Find The Game Online at  : https://thescorpionsgame.herokuapp.com/
 1) Mohamed Gomaa 
 2) Hesham Hamada 
 3) Mostafa Hassan 
-4) Ali 
+4) Ali Elkhatib
 5) Mohamed Khaled 

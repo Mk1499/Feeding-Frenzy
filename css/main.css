@@ -1,0 +1,66 @@
+
+
+
+#load{
+    position: fixed;
+    top: 0 ;
+   /* background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
+    background-size: cover ; */
+    background: #333 ; 
+    color: #fff ;
+    z-index: 777;
+    height: 100%;
+    width: 100% ;
+    animation-delay: 1s ; 
+    animation-duration: 3s; 
+  }
+  
+  #loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+    animation: spin 2s linear infinite;
+    margin-left: 45vw;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  
+
+#start{
+    position: fixed;
+    top: 0 ;
+    background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
+    background-size: cover ; 
+    color: #fff ;
+    z-index: 666;
+    height: 100%;
+    animation-delay: 0.5s ; 
+    animation-duration: 2s; 
+}
+.transperant-btn{
+    background: transparent ; 
+    border: 0px; 
+    width: 40%;
+    
+    
+}
+#gameOver{
+  z-index: -150;
+  display: none ; 
+}
+.gameOver img {
+  width:80%;
+  
+}
+
+.gameOver button {
+  
+  border : 0px;   
+  background-color:transparent;
+}
