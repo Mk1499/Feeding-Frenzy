@@ -1,5 +1,9 @@
-
 let scoreAndLevel = function () {
+
+    if (seaStarNum===5){
+      lives++;
+      seaStarNum=0;
+    }
 
     if (score - ((level - 1) * 30) === 0) {
         playedBefore1 = false;
@@ -23,8 +27,15 @@ let scoreAndLevel = function () {
     else if (score - ((level - 1) * 30) === 30) {
 
         level++;
+        for (let i = 0; i < fishEnemiesList.length; i++)
+              container.removeChild(fishEnemiesList[i].element);
+        fishEnemiesList = [];
+        randomMotionTimer=[];
+        randomMotionCompletion=[];
+        randomMotionTimerY=[];
+        randomMotionCompletionY=[];
         showLevelUpNotificationImage();
-        addNewEnemyFish();
+        //addNewEnemyFish();
         playLevelUpSound();
     }
 
@@ -57,7 +68,7 @@ let showLevelUpNotificationImage = function () {
     levelSign.style.position = "absolute";
     levelSign.style.left = window.innerWidth/2 - 125 + "px";
     levelSign.style.top = window.innerHeight/2 - 75 + "px";
-    
+
     container.appendChild(levelSign);
 
     setTimeout(() => container.removeChild(levelSign), 2000);
