@@ -62,4 +62,6 @@ let timeDiv = document.getElementById('timer');
 let secondNumArr = document.getElementsByClassName('secondNum');
 let minNumArr = document.getElementsByClassName('minNum');
 let hourNumArr = document.getElementsByClassName('hourNum');
+let backgroundVideo = document.getElementById("backgroundVideo");
+let backgroundWebm = document.getElementById("backgroundWebm");
 let containerBoundingRect = container.getBoundingClientRect();
