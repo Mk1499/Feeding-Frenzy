@@ -14,7 +14,7 @@ let gameOverUp = function () {
    
     setTimeout(function () {
         
-        gameOverDiv.style.display = "none";
+        gameOverDiv.style.display = "block";
         gameOverDiv.style.zIndex = 0;
     }, 1000)
 
