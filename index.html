@@ -22,9 +22,19 @@
 <body>
 
         <div id="load" class="text-center animated">
-                <img src="Div/Welcome/logo.png" width="40%" > 
-                <div id="loader"> </div>
+                <img src="Div/Welcome/logo.png" width="400px" > 
+                
+                
+                    <h3 style="margin-left: 20px;color:#3498db;">Enter Your Name:</h3>
+                    <input style="margin-left: 10px;" id="nameEnter" type="text">
+                    <br/>
+                    <br/>
+                    <button  name="nameBtn" id="btnGame" type="submit" style="width: 100px;margin-left: 15px;" class="btn btn-primary">Ok</button>
+                    <br/>
+                    <br/>
+                    <div id="loader"> </div>
         </div>
+        
 
 
     <video playsinline autoplay muted loop>
@@ -111,6 +121,8 @@
             <img src='Div/GameOver/Gameover.png'>
             <br/>
             <button id='playAgain' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
+            </button>
+            <button id='scorIng' onclick="alert(playerNa.value+' '+localStorage.getObj(playerNa.value))"><img width='100%' src='Div/Menu/score.png' >
             </button>
         </div>
         

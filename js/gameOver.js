@@ -5,6 +5,7 @@ let displayGameOver = function () {
     gameOverDiv.classList.remove("bounceOutUp");
     gameOverDiv.classList.add("bounceInDown");
     GOSound.play();
+    
 
 }
 let gameOverUp = function () {

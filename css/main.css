@@ -1,28 +1,25 @@
 
-
-
 #load{
-    position: fixed;
-    top: 0 ;
-   /* background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
-    background-size: cover ; */
-    background: #333 ; 
-    color: #fff ;
-    z-index: 777;
-    height: 100%;
-    width: 100% ;
-    animation-delay: 1s ; 
-    animation-duration: 3s; 
+  position: fixed;
+  top: 0 ;
+ /* background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
+  background-size: cover ; */
+  background:black ; 
+  color: #fff ;
+  z-index: 777;
+  height: 100%;
+  width: 100% ;
+  animation-duration: 3s; 
   }
   
   #loader {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
-    width: 10vw;
-    height: 10vw;
+    width: 8vw;
+    height: 8vw;
     animation: spin 2s linear infinite;
-    margin-left: 45vw;
+    margin-left: 46.5vw;
   }
   
   @keyframes spin {
