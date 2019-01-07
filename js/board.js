@@ -10,11 +10,8 @@ let adjustBoard = function (score, level, charID, lives,seaStarNum) {
 
 // Adjusting score
   let i = scoreNumArr.length - 1;
-  if (score===0){
-  for(let k=scoreNumArr.length - 1;k>=0;k--)
-    scoreNumArr[k].src = 'images/Characters/numbers/0-blue.png';
-  }
-  else{while (score > 0) {
+  while (score >= 0 && i > 0) {
+
     scoreNumArr[i].src = 'images/Characters/numbers/' + (score % 10) + '-blue.png';
     i--;
     score = (score - (score % 10)) / 10;
@@ -24,7 +21,8 @@ let adjustBoard = function (score, level, charID, lives,seaStarNum) {
 //Adjusting lifes
   charImg.src = 'images/Characters/player' + charID + "-right.gif";
   let j = liveNumArr.length - 1;
-  while (lives > 0) {
+
+  while (lives >= 0  && j> 0) {
 
     liveNumArr[j].src = 'images/Characters/numbers/' + (lives % 10) + '-blue.png';
     j--;
