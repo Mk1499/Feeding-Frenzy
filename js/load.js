@@ -9,7 +9,7 @@ let loaderOut = function () {
 
 document.onreadystatechange = function () {
 
-  if (document.readyState === 'complete') {
+  if (document.readyState === 'interactive') {
 
     loaderOut();
 

@@ -7,8 +7,7 @@ let adjustBoard = function (score, level, charID, lives) {
   growthBarActual.style.width = ((score - (level-1) * 30)  / 30 * 100) + '%';
 
   let i = scoreNumArr.length - 1;
-
-  while (score > 0) {
+  while (score >= 0 && i > 0) {
 
     scoreNumArr[i].src = 'images/Characters/numbers/' + (score % 10) + '-blue.png';
     i--;
@@ -20,7 +19,7 @@ let adjustBoard = function (score, level, charID, lives) {
 
   let j = liveNumArr.length - 1;
 
-  while (lives > 0) {
+  while (lives >= 0  && j> 0) {
 
     liveNumArr[j].src = 'images/Characters/numbers/' + (lives % 10) + '-blue.png';
     j--;

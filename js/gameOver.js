@@ -11,7 +11,7 @@ let displayGameOver = function () {
 let gameOverUp = function () {
     gameOverDiv.classList.remove("bounceInDown");
     gameOverDiv.classList.add("bounceOutUp");
-    
+   
     setTimeout(function () {
         
         gameOverDiv.style.display = "none";
