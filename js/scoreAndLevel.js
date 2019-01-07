@@ -27,6 +27,9 @@ let scoreAndLevel = function () {
     else if (score - ((level - 1) * 30) === 30) {
 
         level++;
+        backgroundWebm.src = "videos/background-" + level + ".webm";
+        backgroundVideo.load();
+
         for (let i = 0; i < fishEnemiesList.length; i++)
               container.removeChild(fishEnemiesList[i].element);
         fishEnemiesList = [];
