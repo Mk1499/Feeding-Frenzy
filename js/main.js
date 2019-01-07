@@ -80,4 +80,4 @@ let CheckGameOver = function () {
 
 };
 
-backgroundSound = setInterval(playUnderWaterSound, 10000);
+backgroundSound = setInterval(playUnderWaterSound, 6500);
