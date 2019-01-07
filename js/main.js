@@ -13,6 +13,9 @@ let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 55
 let fishImages = [{ src: "shark.gif", weight: 1.7 }, { src: "gray_fish.gif", weight: 1.2 }, { src: "whiteFish.gif", weight: 0.8 }, { src: "yellowFish.gif", weight: 1.4 }];
 let playedBefore1 = false;
 let playedBefore2 = false;
+let second = 0 ; 
+let minutes = 0 ; 
+let hours = 0 ; 
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -36,6 +39,10 @@ let scoreDiv = document.getElementById('scoreDiv');
 let growthDiv = document.getElementById('growthDiv');
 let liveDiv = document.getElementById('liveDiv');
 let levelDiv = document.getElementById('levelDiv');
+let timeDiv = document.getElementById('timer');
+let secondNumArr = document.getElementsByClassName('secondNum');
+let minNumArr = document.getElementsByClassName('minNum');
+let hourNumArr = document.getElementsByClassName('hourNum');
 
 let setPlayerNumber = function (num) {
     playerNumber = num;
@@ -90,10 +97,12 @@ let startGame = function () {
 
     level = 1;
     lives = 3;
-    score = 0
+    score = 0 ; 
+    second = minutes = hours = 0;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
+    t = setInterval(timer,1000) ;
 
 };
 
@@ -103,6 +112,7 @@ let CheckGameOver = function () {
 
         displayGameOver();
         clearInterval(interval);
+        clearInterval(t) ; 
 
     }
 

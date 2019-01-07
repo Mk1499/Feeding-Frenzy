@@ -36,7 +36,7 @@
     </video>
 
     <section id="start" class="text-center animated ">
-            <img src="Div/Welcome/logo.png" width="40%" >
+            <img src="Div/Welcome/logo.png" width="40%">
             <br>
             <button class="transperant-btn" onclick="selectUp(),setPlayerNumber(1),startGame()">
                 <img src="Div/Select/Char1.png" width="40%">
@@ -80,6 +80,31 @@
             </div>
         </div>
 
+        <div id="timer" class="time">
+                
+                <div id='hour'>
+                        <img class='hourNum' src='images/Characters/numbers/0-blue.png'></img>
+                        <img class='hourNum' src='images/Characters/numbers/0-blue.png'></img>
+                </div>
+                
+                <span>:</span>
+
+                <div id='min'>
+                        <img class='minNum' src='images/Characters/numbers/0-blue.png'></img>
+                        <img class='minNum' src='images/Characters/numbers/0-blue.png'></img>
+                </div>
+               
+                <span>:</span>
+                
+                <div id='second'>
+                        <img class='secondNum' src='images/Characters/numbers/0-blue.png'></img>
+                        <img class='secondNum' src='images/Characters/numbers/0-blue.png'></img>
+                </div>
+               
+                
+            
+        </div>
+
     </div>
 
     <div id ="gameOver" class="text-center gameOver animated">
@@ -111,6 +136,7 @@
     <script src="js/start.js"></script>
     <script src="js/gameOver.js"></script>
     <script src="js/load.js"></script>
+    <script src="js/timer.js"></script>
     <script src="js/main.js"></script>
 </body>
 

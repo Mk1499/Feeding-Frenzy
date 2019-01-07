@@ -64,3 +64,19 @@
   border : 0px;   
   background-color:transparent;
 }
+
+#timer{
+  position: absolute;
+    width: 30%;
+    display: inline-block;
+    right: 16%;
+    top: 62%;
+}
+
+#timer img {
+  width:40% ; 
+}
+#second, #min , #hour {
+  width: 14% ;
+  display: inline-block ;
+}
