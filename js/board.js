@@ -21,7 +21,7 @@ let adjustBoard = function (score, level, charID, lives) {
 
   let j = liveNumArr.length - 1;
 
-  while (lives > 0) {
+  while (lives >= 0) {
 
     liveNumArr[j].src = 'images/Characters/numbers/' + (lives % 10) + '-blue.png';
     j--;

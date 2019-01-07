@@ -114,7 +114,7 @@ let startGame = function () {
 
     level = 1;
     lives = 3;
-    score = 0
+    score = 0;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
@@ -125,8 +125,9 @@ let CheckGameOver = function () {
 
     if (lives === 0) {
 
+
         displayGameOver();
-        clearInterval(interval);
+        
 
     }
 
