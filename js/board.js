@@ -15,7 +15,7 @@ let adjustBoard = function (score, level, charID, lives,seaStarNum) {
     scoreNumArr[i].src = 'images/Characters/numbers/' + (score % 10) + '-blue.png';
     i--;
     score = (score - (score % 10)) / 10;
-  }}
+  }
 
 
 //Adjusting lifes
