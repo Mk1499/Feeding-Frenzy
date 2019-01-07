@@ -1,0 +1,14 @@
+body{
+    background-color: black;
+}
+.image { 
+    position: relative; 
+    margin-left: 370px;
+ }
+ 
+ h2 { 
+    position: absolute; 
+    top: 230px; 
+    left: 100px; 
+    width: 100%; 
+ }

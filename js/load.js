@@ -3,6 +3,7 @@ let lod = document.getElementById("load");
 let playerNa = document.getElementById("nameEnter");
 let btnName=document.getElementById("btnGame");
 var nameing=[];
+var counting=0;
 Storage.prototype.setObj = function(key, obj) {
   return this.setItem(key, JSON.stringify(obj))
 }
@@ -24,6 +25,7 @@ btnName.addEventListener('click',function(){
       nameing[iii]=playerNa.value;
       iii++;
       localStorage.setItem("counter",iii);
+      counting=iii;
     loaderOut();
     }
 });

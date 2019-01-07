@@ -17,3 +17,8 @@ let gameOverUp = function () {
     }, 1000)
 
 }
+
+let scoringBoard=document.getElementById("scorIng");
+scoringBoard.addEventListener('click',function(){
+    window.location="scorinB.html";
+});
