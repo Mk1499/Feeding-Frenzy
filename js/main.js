@@ -29,9 +29,9 @@ let fishImages={
 }
 let playedBefore1 = false;
 let playedBefore2 = false;
-let second = 0 ; 
-let minutes = 0 ; 
-let hours = 0 ; 
+let second = 0 ;
+let minutes = 0 ;
+let hours = 0 ;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -121,7 +121,8 @@ let startGame = function () {
 
     level = 1;
     lives = 3;
-    score = 0 ; 
+    score = 0 ;
+    seaStarNum=0;
     second = minutes = hours = 0;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     showLevelUpNotificationImage();
@@ -136,7 +137,7 @@ let CheckGameOver = function () {
 
         displayGameOver();
         clearInterval(interval);
-        clearInterval(t) ; 
+        clearInterval(t) ;
 
     }
 
