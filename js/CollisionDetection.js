@@ -23,6 +23,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                                     playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
+                                    removeFishRandomMotion(i);
                               }
 
 
@@ -50,6 +51,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                                     playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
+                                    removeFishRandomMotion(i);
                               }
                         }
                   }
@@ -75,6 +77,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                                     playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
+                                    removeFishRandomMotion(i);
                               }
                         }
                   } else {
@@ -95,6 +98,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
                                     playEatingSound();
                                     score++;
                                     fishEnemiesList.splice(i, 1);
+                                    removeFishRandomMotion(i);
                               }
 
                         }
@@ -125,13 +129,17 @@ let resetTheGameAfterThePlayerFishDies = function () {
       fishPlayer.style.display = "none";
       clearInterval(interval);
       playdyingSound();
-      
+
       setTimeout(() => {
 
             for (let i = 0; i < fishEnemiesList.length; i++)
                   container.removeChild(fishEnemiesList[i].element);
 
             fishEnemiesList = [];
+            randomMotionTimer=[];
+            randomMotionCompletion=[];
+            randomMotionTimerY=[];
+            randomMotionCompletionY=[];
             fishPlayer.style.display = "block";
             interval = setInterval(UpdateGameGrid, 20);
 
@@ -162,7 +170,6 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                    parseInt(fishPlayer.style.top) + fishPlayer.height > fishEnemiesList[i].y
              ) {
                    if (fishPlayer.height >= fishEnemiesList[i].height) {
- 
                          container.removeChild(fishEnemiesList[i].element);
                          playEatingSound();
                          score++;
@@ -196,6 +203,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                               playEatingSound();
                               score++;
                               fishEnemiesList.splice(i, 1);
+                              removeFishRandomMotion(i);
                         }
                         else {
                               noCollision = false;
@@ -220,6 +228,7 @@ let detectCollisionBetweenPlayerFishAndEnemyFishes = function () {
                               playEatingSound();
                               score++;
                               fishEnemiesList.splice(i, 1);
+                              removeFishRandomMotion(i);
                         }
                         else {
                               noCollision = false;
@@ -251,7 +260,10 @@ let detectCollisionBetweenEnemyFishes = function () {
                               && fishEnemiesList[i].weight != fishEnemiesList[j].weight) {
 
                               if (fishEnemiesList[j].x - fishEnemiesList[i].x <= fishEnemiesList[i].width
-                                    && fishEnemiesList[i].y === fishEnemiesList[j].y
+                                    && fishEnemiesList[i].y >= fishEnemiesList[j].y - fishEnemiesList[i].height + (fishEnemiesList[i].height * 0.3)
+                                    && fishEnemiesList[i].y <= fishEnemiesList[j].y + fishEnemiesList[j].height - (fishEnemiesList[i].height * 0.3)
+                                    && fishEnemiesList[i].x >= fishEnemiesList[j].x - fishEnemiesList[i].width + (fishEnemiesList[i].width * 0.3)
+                                    && fishEnemiesList[i].x <= fishEnemiesList[j].x + fishEnemiesList[j].width - (fishEnemiesList[i].width * 0.3)
                                     && fishEnemiesList[i].x > 0
                                     && fishEnemiesList[i].x <= window.innerWidth + fishEnemiesList[i].width
                                     && fishEnemiesList[j].x > 0
@@ -264,12 +276,14 @@ let detectCollisionBetweenEnemyFishes = function () {
                                     if (fishEnemiesList[i].weight > fishEnemiesList[j].weight) {
                                           container.removeChild(fishEnemiesList[j].element);
                                           fishEnemiesList.splice(j, 1);
+                                          removeFishRandomMotion(i);
 
 
                                     }
                                     else if (fishEnemiesList[i].weight < fishEnemiesList[j].weight) {
                                           container.removeChild(fishEnemiesList[i].element);
                                           fishEnemiesList.splice(i, 1);
+                                          removeFishRandomMotion(i);
 
                                     }
 
@@ -284,3 +298,14 @@ let detectCollisionBetweenEnemyFishes = function () {
       }
 
 };
+
+function detectCollisionBetweenPlayerFishAndSeaStar(dragMe, rect){
+  var object_1 = dragMe.getBoundingClientRect();
+  var object_2 = rect.getBoundingClientRect();
+
+  if (object_1.left < object_2.left + object_2.width  && object_1.left + object_1.width  > object_2.left &&
+		object_1.top < object_2.top + object_2.height && object_1.top + object_1.height > object_2.top) {
+    bonusAdd();
+  }
+
+}

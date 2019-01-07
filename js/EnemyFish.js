@@ -1,4 +1,3 @@
-
 let EnemyFish = function (x, y, imgSrc, weight, direction,directionVertical) {
 
     this.x = x;
