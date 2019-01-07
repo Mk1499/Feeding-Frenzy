@@ -1,5 +1,5 @@
 
-let EnemyFish = function (x, y, imgSrc, weight, direction) {
+let EnemyFish = function (x, y, imgSrc, weight, direction,directionVertical) {
 
     this.x = x;
     this.y = y;
@@ -7,9 +7,10 @@ let EnemyFish = function (x, y, imgSrc, weight, direction) {
     this.height = 60 * weight;
     this.imgSrc = "./images/Enemies" + "/" + direction + "/" + imgSrc;
     this.direction = direction;
+    this.directionVertical=directionVertical;
     this.weight = weight;
-    this.speedX = 2 * (level + weight);
-    this.speedY = 0;
+    this.speedX = 3 * level;
+    this.speedY = 0.3*level;
     this.element;
 
 
@@ -46,5 +47,14 @@ EnemyFish.prototype.moveFishes = function () {
     }
 
     this.element.style.left = this.x + "px";
+
+    if (this.directionVertical === "top") {
+        this.y -= this.speedY;
+
+    }
+    else if (this.directionVertical === "down") {
+        this.y += this.speedY;
+    }
+    this.element.style.top = this.y + "px";
 
 }
