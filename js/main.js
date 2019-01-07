@@ -1,4 +1,4 @@
-     
+
 let setPlayerNumber = function (num) {
     playerNumber = num;
 }
@@ -48,8 +48,8 @@ let UpdateGameGrid = function () {
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
     scoreAndLevel();
-    
-    
+
+
 
 };
 
@@ -57,9 +57,9 @@ let startGame = function () {
 
     level = 1;
     lives = 3;
-    score = 0 ; 
-    seaStarNum=0 ; 
-    
+    score = 0 ;
+    seaStarNum=0 ;
+
     second = minutes = hours = 0;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     showLevelUpNotificationImage();
@@ -74,7 +74,7 @@ let CheckGameOver = function () {
 
         displayGameOver();
         clearInterval(interval);
-        clearInterval(t) ; 
+        clearInterval(t) ;
 
     }
 

@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
     <link rel="stylesheet" href="css/style.css">
-    
+
     <link rel="stylesheet" type="text/css" href="css/main.css" />
- 
+
 
 
 </head>
@@ -22,13 +22,13 @@
 <body>
 
         <div id="load" class="text-center animated">
-                <img src="Div/Welcome/logo.png" width="40%" > 
+                <img src="Div/Welcome/logo.png" width="40%" >
                 <div id="loader"> </div>
         </div>
 
 
     <video playsinline autoplay muted loop>
-        
+
 
         <source src="videos/background.webm" type="video/webm">
         <source src="videos/background.mp4" type="video/mp4">
@@ -44,10 +44,10 @@
             <button class="transperant-btn" onclick="selectUp(),setPlayerNumber(3),startGame()">
                 <img src="Div/Select/Char2.png" width="40%">
             </button>
-           
-    
+
+
         </section>
-    
+
 
     <div id='board' class= "text-center">
         <div id='scoreDiv'>
@@ -97,28 +97,25 @@
         </div>
 
         <div id="timer" class="time">
-                
+
                 <div id='hour'>
                         <img class='hourNum' src='images/Characters/numbers/0-blue.png'></img>
                         <img class='hourNum' src='images/Characters/numbers/0-blue.png'></img>
                 </div>
-                
+
                 <span>:</span>
 
                 <div id='min'>
                         <img class='minNum' src='images/Characters/numbers/0-blue.png'></img>
                         <img class='minNum' src='images/Characters/numbers/0-blue.png'></img>
                 </div>
-               
+
                 <span>:</span>
-                
+
                 <div id='second'>
                         <img class='secondNum' src='images/Characters/numbers/0-blue.png'></img>
                         <img class='secondNum' src='images/Characters/numbers/0-blue.png'></img>
                 </div>
-               
-                
-            
         </div>
 
     </div>
@@ -129,28 +126,28 @@
             <button id='playAgain' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
             </button>
         </div>
-        
+
     <div id="container">
             <img id='seaStar' src='images/Bonus/seaStar.png'></img>
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player-left.gif" style="left: 48%;top:49%;position: relative" />
     </div>
 
-    
+
 
     <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;" ></audio>
     <audio id="die" type="audio/wav" src="sound/die.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="level" type="audio/wav" src="sound/levelUp.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="sizeUp" type="audio/wav" src="sound/size_up.wav" preload="auto" controls="none" style="display: none;"></audio>
-    <audio id="gameOverSound" type="audio/wav" src="sound/GameOver.wav" preload="auto" controls="none" style="display: none;"></audio>    
-    
+    <audio id="gameOverSound" type="audio/wav" src="sound/GameOver.wav" preload="auto" controls="none" style="display: none;"></audio>
+
     <script src="js/init.js"></script>
     <script src="js/EnemyFish.js"></script>
     <script src="js/Sound.js"></script>
     <script src="js/board.js"></script>
     <script src="js/EnemyFishesCreationAndMovement.js"></script>
     <script src="js/scoreAndLevel.js"></script>
-    <script src="js/CollisionDetection.js"></script> 
+    <script src="js/CollisionDetection.js"></script>
     <script src="js/start.js"></script>
     <script src="js/gameOver.js"></script>
     <script src="js/load.js"></script>
