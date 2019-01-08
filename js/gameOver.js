@@ -13,6 +13,7 @@ let gameOverUp = function () {
     gameOverDiv.classList.remove("bounceInDown");
     gameOverDiv.classList.add("bounceOutUp");
     fishPlayer.style.display = "block" ;
+    board.style.display = "block" ;
     setTimeout(function () {
         
         gameOverDiv.style.display = "none";
