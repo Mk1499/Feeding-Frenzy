@@ -2,6 +2,7 @@
 let previousState;
 
 let updateLocalStorage=function(){
+
 if (gameCompleteFlag){
      if (lives>previousState.numberOfLives)
         {
@@ -14,7 +15,17 @@ if (gameCompleteFlag){
           localStorage.setObj(playerNa.value,previousState);
         }
    }
+
+else if (lives===0) {
+  if (score>previousState.scoreing)
+     {
+       previousState.scoreing=score;
+       localStorage.setObj(playerNa.value,previousState);
+     }
+}
+
 else{
+
   switch(level){
       case 2:
       {

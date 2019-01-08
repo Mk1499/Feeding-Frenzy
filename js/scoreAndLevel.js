@@ -43,8 +43,6 @@ let scoreAndLevel = function () {
         playLevelUpSound();
     }
 
-    if (score > localStorage.getItem("HScore"))
-        localStorage.setItem("HScore", score);
 };
 
 /**********************************
@@ -96,6 +94,15 @@ else if (badgeType==="Time3") {
   badge.src = "./images/Badges/TimeBadge3.png";
   badgrArr[2].src='images/Badges/TimeBadge3.png';
 }
+else if(badgeType==="scoreBadge"){
+  badge.src = "./images/Badges/HighScore.png";
+  badgrArr[3].src='images/Badges/HighScore.png';
+}
+else if(badgeType==="livesBadge"){
+  badge.src = "./images/Badges/Champion.png";
+  badgrArr[4].src='images/Badges/Champion.png';
+}
+
 
     badge.height = 200;
     badge.width = 180;
@@ -167,4 +174,55 @@ if (deserveTime2Badge)
 
 if (deserveTime3Badge)
   showBadgeImage("Time3");
+}
+
+
+
+let checkForFinalBadges=function(){
+
+
+//let deserveHighScoreBadge=true;
+//let deserveHighFinishLives=false;
+
+// Getting all players high scores
+let highScores=[];
+for(let key in localStorage){
+  if (localStorage.hasOwnProperty(key))
+      highScores.push(localStorage.getObj(key).scoreing);
+}
+
+// Getting all players finsish case number of numberOfLives
+let playersFinishNumberOfLives=[];
+for(let key2 in localStorage){
+  if (localStorage.hasOwnProperty(key2))
+      playersFinishNumberOfLives.push(localStorage.getObj(key2).numberOfLives);
+}
+
+
+function checkScore(playersScores) {
+  console.log("Checking score");
+  return playersScores < score;
+}
+
+function checkLives(playersLives) {
+  return playersLives < lives;
+}
+
+
+if(lives===0 && highScores.every(checkScore))  // Gmae over case check only for score
+{
+  showBadgeImage("scoreBadge");
+}
+
+
+if(gameCompleteFlag &&  playersFinishNumberOfLives.every(checkLives))
+{
+  showBadgeImage("livesBadge");
+}
+
+
+
+
+
+
 }

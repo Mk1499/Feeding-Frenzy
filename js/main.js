@@ -87,7 +87,9 @@ let CheckGameOver = function () {
         displayGameOver();
         clearInterval(interval);
         clearInterval(t);
+        checkForFinalBadges();
         updateLocalStorage();
+
 
     }
 
@@ -101,9 +103,12 @@ let CheckEndOfGame = function () {
         clearInterval(interval);
         clearInterval(t);
         clearInterval(backgroundSound);
-        displayCong() ; 
+        displayCong() ;
         fishPlayer.style.display = "none";
         gameCompleteFlag=true;
+        checkForFinalBadges();
+        updateLocalStorage();
+
 
 
     }

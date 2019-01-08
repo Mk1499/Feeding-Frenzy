@@ -86,11 +86,3 @@ let lod = document.getElementById("load");
 let playerNa = document.getElementById("nameEnter");
 let btnName=document.getElementById("btnGame");
 let nameEnt=document.getElementById("EnterNameSec");
-
-/*
-players=[
- {name:"mostafa",level1Time:4000,level2Time:4000,level3Time:4000},
- {name:"ali",level1Time:3000,level2Time:4000,level3Time:4000},
- {name:"gom3a",level1Time:3500,level2Time:4000,level3Time:4000}
-];
-*/
