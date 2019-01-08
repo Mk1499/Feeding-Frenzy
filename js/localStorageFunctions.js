@@ -1,5 +1,5 @@
 
-let previousState=localStorage.getObj(playerNa.value);
+let previousState;
 
 let updateLocalStorage=function(){
 if (gameCompleteFlag){

@@ -27,6 +27,7 @@ let scoreAndLevel = function () {
     else if (score - ((level - 1) * 30) === 30) {
         adjustCurrentPlayerTime();
         level++;
+        updateLocalStorage();
         backgroundWebm.src = "videos/background-" + level + ".webm";
         backgroundVideo.load();
 

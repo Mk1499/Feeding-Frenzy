@@ -55,6 +55,13 @@ let UpdateGameGrid = function () {
 
 let startGame = function () {
 
+if (localStorage.getObj(playerNa.value) ===null)
+   localStorage.setObj(playerNa.value,{scoreing:0,level1time:4000,level2time:4000,level3time:4000,numberOfLives:0});
+
+
+previousState=localStorage.getObj(playerNa.value);
+
+
     level = 1;
     lives = 3;
     score = 0 ;
@@ -95,6 +102,7 @@ let CheckEndOfGame = function () {
         clearInterval(t);
         clearInterval(backgroundSound);
         fishPlayer.style.display = "none";
+        gameCompleteFlag=true;
 
 
     }
