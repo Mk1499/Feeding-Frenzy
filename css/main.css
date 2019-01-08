@@ -44,6 +44,24 @@
     animation-duration: 3s;
 }
 
+input.form-control , input.form-control:focus{
+  width: 30% ; 
+  margin: 5% ; 
+  margin-left: 35%;
+  background: transparent;
+  height: 8%;
+  border: 2px solid #fff;
+  color: #fff ; 
+  border-radius: 10px ; 
+  font-size: 20px ; 
+}
+
+input.form-control::placeholder{
+  color: #fff ; 
+  font-size: 20px  ; 
+}
+
+
 #start{
     position: fixed;
     top: 0 ;
