@@ -75,6 +75,8 @@ previousState=localStorage.getObj(playerNa.value);
     currentPlayerHeighestScore=null;
     currentPlayerFinishNumberOfLives=null;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
+    backgroundWebm.src = "videos/background.webm";
+    backgroundVideo.load();
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
     t = setInterval(timer,1000) ;
