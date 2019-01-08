@@ -1,3 +1,18 @@
+/*
+players=[];
+
+if(confirm("new user or current user")){
+
+
+}
+else{
+
+}
+*/
+
+
+
+
 
 let setPlayerNumber = function (num) {
     playerNumber = num;
@@ -59,8 +74,8 @@ let startGame = function () {
     lives = 3;
     score = 0 ;
     seaStarNum=0 ;
-
     second = minutes = hours = 0;
+    globalTimeInSeconds=0;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
@@ -80,4 +95,4 @@ let CheckGameOver = function () {
 
 };
 
-backgroundSound = setInterval(playUnderWaterSound, 6500);
+backgroundSound = setInterval(playUnderWaterSound, 10000);

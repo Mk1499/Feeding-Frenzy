@@ -50,6 +50,10 @@
 
 
     <div id='board' class= "text-center">
+
+
+
+
         <div id='scoreDiv'>
             <img src='images/Header Content/Score.png' id='scoreImg'></img>
             <div id='scoreNumDiv'>
@@ -103,14 +107,14 @@
                         <img class='hourNum' src='images/Characters/numbers/0-blue.png'></img>
                 </div>
 
-                <span>:</span>
+                <div id='leftColon'>:</div>
 
                 <div id='min'>
                         <img class='minNum' src='images/Characters/numbers/0-blue.png'></img>
                         <img class='minNum' src='images/Characters/numbers/0-blue.png'></img>
                 </div>
 
-                <span>:</span>
+                <div id='rightColon'>:</div>
 
                 <div id='second'>
                         <img class='secondNum' src='images/Characters/numbers/0-blue.png'></img>
@@ -118,7 +122,20 @@
                 </div>
         </div>
 
-    </div>
+        <div id='badgeDiv'>
+            <img src='images/Badges/Badge.png' id='badgeImg'></img>
+            <div id='playerBadgesDiv'>
+                <img class='bad'></img>
+                <img class='bad'></img>
+                <img class='bad'></img>
+                <img class='bad'></img>
+                <img class='bad'></img>
+                <img class='bad'></img>
+
+            </div>
+          </div>
+
+        </div>
 
     <div id ="gameOver" class="text-center gameOver animated">
             <img src='Div/GameOver/Gameover.png'>
@@ -137,11 +154,12 @@
     <audio id="eat" type="audio/wav" src="sound/eat.wav" preload="auto" controls="none" style="display: none;" ></audio>
     <audio id="die" type="audio/wav" src="sound/die.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="level" type="audio/wav" src="sound/levelUp.wav" preload="auto" controls="none" style="display: none;"></audio>
-    <audio id="underWater" type="audio/wav" src="sound/UnderWater.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="sizeUp" type="audio/wav" src="sound/size_up.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="gameOverSound" type="audio/wav" src="sound/GameOver.wav" preload="auto" controls="none" style="display: none;"></audio>
 
     <script src="js/init.js"></script>
+    <script src="js/localStorageFunctions.js"></script>
     <script src="js/EnemyFish.js"></script>
     <script src="js/Sound.js"></script>
     <script src="js/board.js"></script>

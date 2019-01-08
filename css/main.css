@@ -4,17 +4,17 @@
 #load{
     position: fixed;
     top: 0 ;
-   /* background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
+   /* background: url("../Div/Welcome/bg.PNG") fixed no-repeat ;
     background-size: cover ; */
-    background: #333 ; 
+    background: #333 ;
     color: #fff ;
     z-index: 777;
     height: 100%;
     width: 100% ;
-    animation-delay: 1s ; 
-    animation-duration: 3s; 
+    animation-delay: 1s ;
+    animation-duration: 3s;
   }
-  
+
   #loader {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
@@ -24,59 +24,102 @@
     animation: spin 2s linear infinite;
     margin-left: 45vw;
   }
-  
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
 
-  
+
 
 #start{
     position: fixed;
     top: 0 ;
-    background: url("../Div/Welcome/bg.PNG") fixed no-repeat ; 
-    background-size: cover ; 
+    background: url("../Div/Welcome/bg.PNG") fixed no-repeat ;
+    background-size: cover ;
     color: #fff ;
     z-index: 666;
     height: 100%;
-    animation-delay: 0.5s ; 
-    animation-duration: 2s; 
+    animation-delay: 0.5s ;
+    animation-duration: 2s;
 }
 .transperant-btn{
-    background: transparent ; 
-    border: 0px; 
+    background: transparent ;
+    border: 0px;
     width: 40%;
-    
-    
+
+
 }
 #gameOver{
   z-index: -150;
-  display: none ; 
+  display: none ;
 }
 .gameOver img {
   width:80%;
-  
+
 }
 
 .gameOver button {
-  
-  border : 0px;   
+
+  border : 0px;
   background-color:transparent;
 }
 
 #timer{
   position: absolute;
-    width: 30%;
+    width: 15%;
+    height:40%;
     display: inline-block;
-    right: 16%;
+    right: 30%;
     top: 62%;
+    background-color: red;
 }
 
 #timer img {
-  width:40% ; 
+  width:50% ;
+  height: 100%;
+  float: left;
 }
-#second, #min , #hour {
-  width: 14% ;
-  display: inline-block ;
+ #min{
+  width:28%;
+  height:100%;
+  display:inline-block;
+  left:32%;
+  top:0%;
+  margin-top: 0%;
+  margin-left: 1%;
+  background-color: black;
+}
+
+#second{
+ float: right;
+ width: 28% ;
+ height: 100%;
+ display: inline-block ;
+ top:0%;
+ background-color: black;
+}
+
+#hour{
+ float:left;
+ width: 28% ;
+ height: 100%;
+ display: inline-block ;
+ top:0%;
+ background-color: black;
+}
+
+#leftColon{
+width:1%;
+height:100%;
+top:0%;
+display:inline-block;
+margin-top:0%;
+}
+
+#rightColon{
+width:1%;
+height:100%;
+display: inline-block;
+margin-top:0%;
 }

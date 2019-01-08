@@ -25,7 +25,7 @@ let scoreAndLevel = function () {
         sizeSound2();
     }
     else if (score - ((level - 1) * 30) === 30) {
-
+        adjustCurrentPlayerTime(level,globalTimeInSeconds);
         level++;
         backgroundWebm.src = "videos/background-" + level + ".webm";
         backgroundVideo.load();
@@ -77,3 +77,126 @@ let showLevelUpNotificationImage = function () {
     setTimeout(() => container.removeChild(levelSign), 2000);
 
 };
+
+let showBadgeImage = function (badgeType) {
+
+    let badge = document.createElement("img");
+
+
+if (badgeType==="Time1"){
+    badge.src = "./images/Badges/TimeBadge1.png";
+    badgrArr[0].src='images/Badges/TimeBadge1.png';
+}
+else if (badgeType==="Time2") {
+  badge.src = "./images/Badges/TimeBadge2.png";
+  badgrArr[1].src='images/Badges/TimeBadge2.png';
+}
+else if (badgeType==="Time3") {
+  badge.src = "./images/Badges/TimeBadge3.png";
+  badgrArr[2].src='images/Badges/TimeBadge3.png';
+}
+
+    badge.height = 200;
+    badge.width = 180;
+    badge.style.position = "absolute";
+    badge.style.left = window.innerWidth/4 - 90 + "px";
+    badge.style.top = window.innerHeight/4 - 100 + "px";
+    badge.style.border="medium solid black"
+
+
+    container.appendChild(badge);
+    setTimeout(() => container.removeChild(badge), 4000);
+
+};
+
+
+let adjustCurrentPlayerTime=function(level,globalTimeInSeconds){
+
+switch (level) {
+  case 1:
+     {
+       currentPlayerLevel1Time=globalTimeInSeconds;
+     }
+    break;
+  case 2:
+     {
+       currentPlayerLevel2Time=globalTimeInSeconds-currentPlayerLevel1Time;
+     }
+     break;
+  case 3:
+     {
+       currentPlayerLevel3Time=globalTimeInSeconds-currentPlayerLevel2Time;
+     }
+    break;
+}
+
+checkForBadges(level);
+}
+
+
+
+let checkForBadges=function(level){
+
+
+ let deserveTime1Badge=false;
+ let deserveTime2Badge=false;
+ let deserveTime3Badge=false;
+
+switch (level) {
+  case 1:
+    {
+      for(let i=0;i<players.length;i++)
+        {
+           if (currentPlayerLevel1Time>players[i]["level1Time"])
+                {deserveTime1Badge=false;
+                 break;
+                }
+            else
+              deserveTime1Badge=true;
+        }
+    }
+    break;
+
+    case 2:
+      {
+        for(let i=0;i<players.length;i++)
+          {
+             if (currentPlayerLevel2Time>players[i]["level2Time"])
+                 {deserveTime2Badge=false;
+                  break;
+                 }
+         else
+           deserveTime2Badge=true;
+          }
+      }
+      break;
+
+      case 3:
+        {
+          for(let i=0;i<players.length;i++)
+            {
+               if (currentPlayerLevel3Time>players[i]["level3Time"])
+                   {deserveTime3Badge=false;
+                    break;
+                    }
+               else
+                  deserveTime3Badge=true;
+            }
+        }
+        break;
+}
+
+
+if (deserveTime1Badge)
+   showBadgeImage("Time1");
+
+if (deserveTime2Badge)
+    showBadgeImage("Time2");
+
+if (deserveTime3Badge)
+  showBadgeImage("Time3");
+
+
+
+
+}

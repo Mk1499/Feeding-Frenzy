@@ -3,6 +3,12 @@ let score = 0;
 let level = 1;
 let lives = 3;
 let foodTimer = 0;
+
+let currentPlayerLevel1Time=0;
+let currentPlayerLevel2Time=0;
+let currentPlayerLevel3Time=0;
+
+
 let randomMotionTimer=[];
 let randomMotionCompletion=[];
 let randomMotionTimerY=[];
@@ -28,9 +34,10 @@ let fishImages={
 }
 let playedBefore1 = false;
 let playedBefore2 = false;
-let second = 0 ; 
-let minutes = 0 ; 
-let hours = 0 ; 
+let second = 0 ;
+let minutes = 0 ;
+let hours = 0 ;
+let globalTimeInSeconds=0;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -65,3 +72,12 @@ let hourNumArr = document.getElementsByClassName('hourNum');
 let backgroundVideo = document.getElementById("backgroundVideo");
 let backgroundWebm = document.getElementById("backgroundWebm");
 let containerBoundingRect = container.getBoundingClientRect();
+
+let badgrArr=document.getElementsByClassName('bad');
+
+players=[
+
+ {name:"mostafa",level1Time:4000,level2Time:4000,level3Time:4000},
+ {name:"ali",level1Time:3000,level2Time:4000,level3Time:4000},
+ {name:"gom3a",level1Time:3500,level2Time:4000,level3Time:4000}
+];

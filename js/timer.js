@@ -3,6 +3,7 @@
 
 
 let timer = function (){
+    globalTimeInSeconds++;
     if (second < 59)
         second++ ;
     else {
