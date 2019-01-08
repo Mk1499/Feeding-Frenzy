@@ -6,6 +6,7 @@ let displayGameOver = function () {
     gameOverDiv.classList.add("bounceInDown");
     GOSound.play();
     fishPlayer.style.display = "none" ;
+    board.style.display = "none" ;
 
 }
 let gameOverUp = function () {

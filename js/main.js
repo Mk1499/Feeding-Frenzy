@@ -88,6 +88,7 @@ let CheckEndOfGame = function () {
         clearInterval(interval);
         clearInterval(t);
         clearInterval(backgroundSound);
+        displayCong() ; 
         fishPlayer.style.display = "none";
         
 
