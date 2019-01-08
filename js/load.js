@@ -1,6 +1,7 @@
 
 let lod = document.getElementById("load");
 let playerNa = document.getElementById("nameEnter");
+
 let btnName=document.getElementById("btnGame");
 let loaderOut = function () {
 
@@ -18,6 +19,9 @@ document.onreadystatechange = function () {
 
 }
 
+
+let nameEnt=document.getElementById("EnterNameSec");
+let btnName=document.getElementById("btnGame");
 
 Storage.prototype.setObj = function(key, obj) {
   return this.setItem(key, JSON.stringify(obj))
@@ -44,8 +48,8 @@ document.onreadystatechange = function () {
 
 btnName.addEventListener('click',function(){
   if(playerNa.value !=""){
-    localStorage.setObj(playerNa.value,{scoreing:score,level1time:null,level2time:null,level3time:null,numberOfLives:lives});
 
-  loaderOut();
+    localStorage.setObj(playerNa.value,{scoreing:null,level1time:null,level2time:null,level3time:null,numberOfLives:lives});
+    nameEnt.classList.add("fadeOutUp");
   }
 });

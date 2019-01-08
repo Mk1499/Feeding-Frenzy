@@ -38,6 +38,7 @@ document.onkeydown = function (event) {
 
 let UpdateGameGrid = function () {
 
+    CheckEndOfGame();
     CheckGameOver();
     adjustBoard(score, level, playerNumber, lives,seaStarNum);
     createEnemyFishes();
@@ -80,6 +81,21 @@ let CheckGameOver = function () {
         clearInterval(interval);
         clearInterval(t);
         updateLocalStorage();
+
+    }
+
+};
+
+
+let CheckEndOfGame = function () {
+
+    if (score === 90) {
+
+        clearInterval(interval);
+        clearInterval(t);
+        clearInterval(backgroundSound);
+        fishPlayer.style.display = "none";
+
 
     }
 
