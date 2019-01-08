@@ -80,12 +80,12 @@ input.form-control::placeholder{
 
 
 }
-#gameOver{
+#gameOver , #CongDiv{
   z-index: -150;
   display: none ;
 }
 .gameOver img {
-  width:80%;
+  width:60%;
 
 }
 

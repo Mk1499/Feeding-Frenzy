@@ -152,6 +152,13 @@
             </button>
         </div>
 
+        <div id ="CongDiv" class="text-center gameOver animated">
+                <img src='images/Badges/congratulations.png'>
+                <br/>
+                <button id='playAgain' onclick="congUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
+                </button>
+            </div>   
+
     <div id="container">
             <img id='seaStar' src='images/Bonus/seaStar.png'></img>
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player1-left.gif" style="left: 48%;top:49%;position: relative" />
@@ -165,6 +172,7 @@
     <audio id="underWater" type="audio/wav" src="sound/underWater.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="sizeUp" type="audio/wav" src="sound/size_up.wav" preload="auto" controls="none" style="display: none;"></audio>
     <audio id="gameOverSound" type="audio/wav" src="sound/GameOver.wav" preload="auto" controls="none" style="display: none;"></audio>
+    <audio id="congSound" type="audio/wav" src="sound/congratulation.wav" preload="auto" controls="none" style="display: none;"></audio>
 
     <script src="js/init.js"></script>
     <script src="js/EnemyFish.js"></script>
@@ -176,6 +184,7 @@
     <script src="js/CollisionDetection.js"></script>
     <script src="js/start.js"></script>
     <script src="js/gameOver.js"></script>
+    <script src="js/congratulation.js"></script>
     <script src="js/load.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/randomMotion.js"></script>
