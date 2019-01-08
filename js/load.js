@@ -20,12 +20,7 @@ let loaderOut = function () {
 }
 btnName.addEventListener('click',function(){
     if(playerNa.value !=""){
-      var iii=parseInt(localStorage.getItem("counter"));
-      localStorage.setObj(localStorage.getItem("counter"),playerNa.value);
-      nameing[iii]=playerNa.value;
-      iii++;
-      localStorage.setItem("counter",iii);
-      counting=iii;
+      localStorage.setObj(playerNa.value,{scoreing:score,level1Time:null,level2Time:null,level3Time:null,numberOfLives:null});
     loaderOut();
     }
 });

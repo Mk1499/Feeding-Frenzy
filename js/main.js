@@ -109,7 +109,7 @@ let startGame = function () {
 let CheckGameOver = function () {
 
     if (lives === 0) {
-        localStorage.setObj(playerNa.value, score);
+        localStorage.setObj(playerNa.value,{scoreing:score,level1Time:null,level2Time:null,level3Time:null,numberOfLives:null});
         displayGameOver();
         clearInterval(interval);
         clearInterval(t) ; 
