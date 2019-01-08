@@ -4,9 +4,12 @@ let level = 1;
 let lives = 3;
 let foodTimer = 0;
 
-let currentPlayerLevel1Time=0;
-let currentPlayerLevel2Time=0;
-let currentPlayerLevel3Time=0;
+let currentPlayerLevel1Time=null;
+let currentPlayerLevel2Time=null;
+let currentPlayerLevel3Time=null;
+let currentPlayerHeighestScore=null;
+let currentPlayerFinishNumberOfLives=null;
+let gameCompleteFlag=false;
 
 
 let randomMotionTimer=[];
@@ -77,9 +80,10 @@ let containerBoundingRect = container.getBoundingClientRect();
 let specialFish;
 let badgrArr=document.getElementsByClassName('bad');
 
+/*
 players=[
-
  {name:"mostafa",level1Time:4000,level2Time:4000,level3Time:4000},
  {name:"ali",level1Time:3000,level2Time:4000,level3Time:4000},
  {name:"gom3a",level1Time:3500,level2Time:4000,level3Time:4000}
 ];
+*/

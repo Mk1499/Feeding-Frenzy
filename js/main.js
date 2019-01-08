@@ -1,18 +1,3 @@
-/*
-players=[];
-
-if(confirm("new user or current user")){
-
-
-}
-else{
-
-}
-*/
-
-
-
-
 
 let setPlayerNumber = function (num) {
     playerNumber = num;
@@ -75,6 +60,12 @@ let startGame = function () {
     seaStarNum=0 ;
     second = minutes = hours = 0;
     globalTimeInSeconds=0;
+    gameCompleteFlag=false;
+    currentPlayerLevel1Time=null;
+    currentPlayerLevel2Time=null;
+    currentPlayerLevel3Time=null;
+    currentPlayerHeighestScore=null;
+    currentPlayerFinishNumberOfLives=null;
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
@@ -85,10 +76,10 @@ let startGame = function () {
 let CheckGameOver = function () {
 
     if (lives === 0) {
-
         displayGameOver();
         clearInterval(interval);
-        clearInterval(t) ;
+        clearInterval(t);
+        updateLocalStorage();
 
     }
 

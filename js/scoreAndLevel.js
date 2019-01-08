@@ -25,7 +25,7 @@ let scoreAndLevel = function () {
         sizeSound2();
     }
     else if (score - ((level - 1) * 30) === 30) {
-        adjustCurrentPlayerTime(level,globalTimeInSeconds);
+        adjustCurrentPlayerTime();
         level++;
         backgroundWebm.src = "videos/background-" + level + ".webm";
         backgroundVideo.load();
@@ -110,7 +110,9 @@ else if (badgeType==="Time3") {
 };
 
 
-let adjustCurrentPlayerTime=function(level,globalTimeInSeconds){
+
+
+let adjustCurrentPlayerTime=function(){
 
 switch (level) {
   case 1:
@@ -129,64 +131,33 @@ switch (level) {
      }
     break;
 }
-
-checkForBadges(level);
+checkForTimeBadges();
 }
 
 
 
-let checkForBadges=function(level){
 
-
+let checkForTimeBadges=function(){
  let deserveTime1Badge=false;
  let deserveTime2Badge=false;
  let deserveTime3Badge=false;
 
 switch (level) {
   case 1:
-    {
-      for(let i=0;i<players.length;i++)
-        {
-           if (currentPlayerLevel1Time>players[i]["level1Time"])
-                {deserveTime1Badge=false;
-                 break;
-                }
-            else
-              deserveTime1Badge=true;
-        }
-    }
-    break;
+     if (currentPlayerLevel1Time<localStorage.getObj(playerNa.value).level1time)
+         deserveTime1Badge=true;
+  break;
 
     case 2:
-      {
-        for(let i=0;i<players.length;i++)
-          {
-             if (currentPlayerLevel2Time>players[i]["level2Time"])
-                 {deserveTime2Badge=false;
-                  break;
-                 }
-         else
-           deserveTime2Badge=true;
-          }
-      }
+    if (currentPlayerLevel2Time<localStorage.getObj(playerNa.value).level2time)
+        deserveTime2Badge=true;
       break;
 
-      case 3:
-        {
-          for(let i=0;i<players.length;i++)
-            {
-               if (currentPlayerLevel3Time>players[i]["level3Time"])
-                   {deserveTime3Badge=false;
-                    break;
-                    }
-               else
-                  deserveTime3Badge=true;
-            }
-        }
-        break;
+    case 3:
+    if (currentPlayerLevel3Time<localStorage.getObj(playerNa.value).level3time)
+        deserveTime3Badge=true;
+      break;
 }
-
-
 if (deserveTime1Badge)
    showBadgeImage("Time1");
 
@@ -195,8 +166,4 @@ if (deserveTime2Badge)
 
 if (deserveTime3Badge)
   showBadgeImage("Time3");
-
-
-
-
 }
