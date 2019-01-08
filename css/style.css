@@ -21,7 +21,6 @@ html, body {width:100%;height:100%;margin:0;padding: 0px;overflow:hidden}
     height: auto;
     z-index: -100;
     transform: translateX(-50%) translateY(-50%);
-    background: url("../images/Dynamic-Background/background-1.gif") round;
     transition: 1s opacity;
 }
 

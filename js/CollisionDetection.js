@@ -1,5 +1,14 @@
 let bom = document.createElement("img");
 
+/**********************************
+** Version 2 function to detect the collision between the player fish and the enemy fishes
+** inside the Game area and decide if the fish should be eaten or the lives of the player
+** fish should be reduced. and when the lives reach 0 it's gameover.
+**
+**Author (@ Mohamed Gomaa)
+**
+************************************/
+
 let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
 
       for (let i = 0; i < fishEnemiesList.length; i++) {
@@ -109,6 +118,13 @@ let detectCollisionBetweenPlayerFishAndEnemyFishesV2 = function () {
 
 };
 
+/**********************************
+** this function to display the BOOM effect after the player fish dies.
+** 
+** Author (@ Mohamed Gomaa)
+**
+************************************/
+
 let boom = function () {
 
       bom.src = "./images/Box_And_Boom/BOOOM.gif";
@@ -122,6 +138,13 @@ let boom = function () {
       setTimeout(() => container.removeChild(bom), 1000);
 
 };
+
+/**********************************
+** this function to reset the game after the player fish dies
+** 
+** Author (@ Mohamed Gomaa)
+**
+************************************/
 
 let resetTheGameAfterThePlayerFishDies = function () {
 
@@ -149,7 +172,7 @@ let resetTheGameAfterThePlayerFishDies = function () {
 };
 
 /**********************************
-** this function to detect the collision between the player fish and the enemy fishes
+** Old function to detect the collision between the player fish and the enemy fishes
 ** inside the Game area and decide if the fish should be eaten or the lives of the player
 ** fish should be reduced. and when the lives reach 0 it's gameover.
 **
@@ -274,9 +297,18 @@ let detectCollisionBetweenEnemyFishes = function () {
 
 };
 
+
+/**********************************
+** this function to detect the collision between the player fish and the Sea Stars
+**
+**Author (@ Mostafa Hassan)
+**
+************************************/
+
 function detectCollisionBetweenPlayerFishAndSeaStar(dragMe, rect){
-  var object_1 = dragMe.getBoundingClientRect();
-  var object_2 = rect.getBoundingClientRect();
+  
+  let object_1 = dragMe.getBoundingClientRect();
+  let object_2 = rect.getBoundingClientRect();
 
   if (object_1.left < object_2.left + object_2.width  && object_1.left + object_1.width  > object_2.left &&
 		object_1.top < object_2.top + object_2.height && object_1.top + object_1.height > object_2.top) {
