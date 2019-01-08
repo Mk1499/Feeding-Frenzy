@@ -8,7 +8,7 @@
     background-size: cover ; */
     background: #333 ;
     color: #fff ;
-    z-index: 777;
+    z-index: 888;
     height: 100%;
     width: 100% ;
     animation-delay: 1s ;
@@ -30,7 +30,19 @@
     100% { transform: rotate(360deg); }
   }
 
+#EnterNameSec{
 
+  position: fixed;
+    top: 0 ;
+    background: url("../Div/Welcome/background.jpg") fixed no-repeat ;
+    background-size: cover ; 
+    color: #fff ;
+    z-index: 777;
+    height: 100%;
+    width: 100% ;
+    animation-delay: 1s ;
+    animation-duration: 3s;
+}
 
 #start{
     position: fixed;
