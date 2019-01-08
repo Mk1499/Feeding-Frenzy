@@ -1,18 +1,3 @@
-/*
-players=[];
-
-if(confirm("new user or current user")){
-
-
-}
-else{
-
-}
-*/
-
-
-
-
 
 let setPlayerNumber = function (num) {
     playerNumber = num;
@@ -53,6 +38,7 @@ document.onkeydown = function (event) {
 
 let UpdateGameGrid = function () {
 
+    CheckEndOfGame();
     CheckGameOver();
     adjustBoard(score, level, playerNumber, lives,seaStarNum);
     createEnemyFishes();
@@ -89,6 +75,21 @@ let CheckGameOver = function () {
         displayGameOver();
         clearInterval(interval);
         clearInterval(t) ;
+
+    }
+
+};
+
+
+let CheckEndOfGame = function () {
+
+    if (score === 90) {
+
+        clearInterval(interval);
+        clearInterval(t);
+        clearInterval(backgroundSound);
+        fishPlayer.style.display = "none";
+        
 
     }
 
