@@ -21,7 +21,9 @@ let seaStarPositionY=0;
 let seaStarMovingFlag=false;
 let seaStarNum=0;
 let gameover = false;
+let specialFlag = 1;
 let interval;
+let specialFishInterval;
 let backgroundSound;
 let playerNumber;
 let fishEnemiesList = [];
@@ -72,7 +74,7 @@ let hourNumArr = document.getElementsByClassName('hourNum');
 let backgroundVideo = document.getElementById("backgroundVideo");
 let backgroundWebm = document.getElementById("backgroundWebm");
 let containerBoundingRect = container.getBoundingClientRect();
-
+let specialFish;
 let badgrArr=document.getElementsByClassName('bad');
 
 players=[
