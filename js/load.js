@@ -7,7 +7,7 @@ let loaderOut = function () {
 
 document.onreadystatechange = function () {
 
-  if (document.readyState === 'interactive') {
+  if (document.readyState === 'complete') {
 
     loaderOut();
 
@@ -30,7 +30,7 @@ Storage.prototype.getObj = function(key) {
 
 document.onreadystatechange = function () {
 
-  if (document.readyState === 'interactive') {
+  if (document.readyState === 'complete') {
 
     loaderOut();
 
