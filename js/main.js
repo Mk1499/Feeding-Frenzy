@@ -34,18 +34,22 @@ document.onkeydown = function (event) {
     if (event.keyCode === 27)
         if (!confirm("Continue Playing ?"))
             location.reload();
+
+    if (event.key === ' ' || event.key === 'Spacebar')
+        event.preventDefault();
+
 };
 
 let UpdateGameGrid = function () {
 
     CheckEndOfGame();
     CheckGameOver();
-    adjustBoard(score, level, playerNumber, lives,seaStarNum);
+    adjustBoard(score, level, playerNumber, lives, seaStarNum);
     createEnemyFishes();
     updateRandomMotion();
     seaStarMotion();
     detectCollisionBetweenPlayerFishAndEnemyFishesV2();
-    detectCollisionBetweenPlayerFishAndSeaStar(fishPlayer,seaStarObj);
+    detectCollisionBetweenPlayerFishAndSeaStar(fishPlayer, seaStarObj);
     detectCollisionBetweenEnemyFishes();
     moveEnemyFishes();
     scoreAndLevel();
@@ -55,31 +59,32 @@ let UpdateGameGrid = function () {
 
 let startGame = function () {
 
-if (localStorage.getObj(playerNa.value) ===null)
-   localStorage.setObj(playerNa.value,{scoreing:0,level1time:4000,level2time:4000,level3time:4000,numberOfLives:0});
+    if (localStorage.getObj(playerNa.value) === null)
+        localStorage.setObj(playerNa.value, { scoreing: 0, level1time: 4000, level2time: 4000, level3time: 4000, numberOfLives: 0 });
 
 
-previousState=localStorage.getObj(playerNa.value);
+    previousState = localStorage.getObj(playerNa.value);
 
 
     level = 1;
     lives = 3;
-    score = 0 ;
-    seaStarNum=0 ;
+    score = 0;
+    seaStarNum = 0;
     second = minutes = hours = 0;
-    globalTimeInSeconds=0;
-    gameCompleteFlag=false;
-    currentPlayerLevel1Time=null;
-    currentPlayerLevel2Time=null;
-    currentPlayerLevel3Time=null;
-    currentPlayerHeighestScore=null;
-    currentPlayerFinishNumberOfLives=null;
+    globalTimeInSeconds = 0;
+    gameCompleteFlag = false;
+    currentPlayerLevel1Time = null;
+    currentPlayerLevel2Time = null;
+    currentPlayerLevel3Time = null;
+    currentPlayerHeighestScore = null;
+    currentPlayerFinishNumberOfLives = null;
+    fishEnemiesList = [];
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     backgroundWebm.src = "videos/background.webm";
     backgroundVideo.load();
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
-    t = setInterval(timer,1000) ;
+    t = setInterval(timer, 1000);
 
 };
 
@@ -105,14 +110,15 @@ let CheckEndOfGame = function () {
         clearInterval(interval);
         clearInterval(t);
         clearInterval(backgroundSound);
-       
-        setTimeout(displayCong,2000) ;
+        setTimeout(displayCong, 2000);
         fishPlayer.style.display = "none";
-        gameCompleteFlag=true;
+        for (let i = 0; i < fishEnemiesList.length; i++)
+            container.removeChild(fishEnemiesList[i].element);
+
+        gameCompleteFlag = true;
         checkForFinalBadges();
         updateLocalStorage();
-
-
+        playLevelUpSound();
 
     }
 

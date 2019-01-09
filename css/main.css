@@ -68,7 +68,7 @@ input.form-control::placeholder{
 }
 
 
-#start{
+#select{
     position: fixed;
     top: 0 ;
     background: url("../Div/Welcome/bg.PNG") fixed round;
