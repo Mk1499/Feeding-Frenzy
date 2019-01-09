@@ -36,7 +36,7 @@ let moveEnemyFishes = function () {
         }
         if (fishEnemiesList[i].x < 0 - fishEnemiesList[i].width
             || fishEnemiesList[i].x > window.innerWidth + fishEnemiesList[i].width
-          ||   fishEnemiesList[i].y >containerBoundingRect.height) {
+            || fishEnemiesList[i].y > window.innerHeight) {
             container.removeChild(fishEnemiesList[i].element);
             fishEnemiesList.splice(i, 1);
             removeFishRandomMotion(i);

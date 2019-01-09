@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Feeding Frenzy </title>
 
+<<<<<<< HEAD
   <!--  <link rel="icon" tybe="image/x-icon" href="images/dumy_fish.gif"> -->
+=======
+    <link rel="icon" tybe="image/x-icon" href="images/favicon.gif">
+>>>>>>> c3507bdfe71d0f693954af3399fe0faf0b2c2093
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
@@ -152,6 +156,7 @@
             <br/>
             <button id='playAgain1' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
             </button>
+            <button id='exitBtn' onclick="exit()"><img width='100%' src='images/Header Content/exit.png' >
         </div>
 
         <div id ="CongDiv" class="text-center gameOver animated">
@@ -159,6 +164,10 @@
                 <br/>
                 <button id='playAgain2' onclick="congUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
                 </button>
+                <button id='exitBtn' onclick="exit()"><img width='100%' src='images/Header Content/exit.png' >
+                </button>
+               <!-- <button id='badgeBtn' onclick="viewBages()"><img width='100%' src='images/Header Content/Badge.png' >
+                </button>-->
             </div>
 
     <div id="container">
@@ -192,6 +201,7 @@
     <script src="js/randomMotion.js"></script>
     <script src="js/seaStar.js"></script>
     <script src="js/localStorageFunctions.js"></script>
+    <script src="js/exit.js"></script>
     <script src="js/main.js"></script>
 </body>
 

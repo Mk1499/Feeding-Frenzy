@@ -1,3 +1,12 @@
+button {
+   opacity: 0.6;
+   transition: 0.5s ;
+   cursor: pointer; 
+}
+button:hover {
+  opacity: 1;
+}
+
 #load{
     position: fixed;
     top: 0 ;
@@ -120,6 +129,13 @@ perspective: 1000px;
   background: url("../Div/Welcome/bg.PNG") fixed round ;
   height: 100%;
   width: 100%;
+}
+
+#CongDiv button  {
+  width : 25% ; 
+}
+#gameOver button{
+  width : 50% ; 
 }
 #gameOver , #CongDiv{
   z-index: -150;
