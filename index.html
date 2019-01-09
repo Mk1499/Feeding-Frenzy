@@ -149,24 +149,27 @@
     <div id ="gameOver" class="text-center gameOver animated">
             <img src='Div/GameOver/Gameover.png'>
             <br/>
+           
+            <button id='exitBtn' onclick="exit()"><img width='80%' src='images/Header Content/exit.png' >
+            </button>
             <button id='playAgain1' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
             </button>
-            <button id='exitBtn' onclick="exit()"><img width='80%' src='images/Header Content/exit.png' >
-            <button id='badgeBtn' onclick="viewBadges()"><img width='100%' src='images/Header Content/Badge.png' >
+                <button id='badgeBtn' onclick="viewBadges()"><img width='100%' src='images/Header Content/Badge.png' >
                 </button>
         </div>
 
         <div id ="CongDiv" class="text-center gameOver animated">
                 <img src='images/Badges/congratulations.png'>
                 <br/>
-                <button id='playAgain2' onclick="congUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
-                </button>
                 <button id='exitBtn' onclick="exit()"><img width='100%' src='images/Header Content/exit.png' >
+                </button>
+                <button id='playAgain2' onclick="congUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
                 </button>
                <button id='badgeBtn' onclick="viewBadges()"><img width='100%' src='images/Header Content/Badge.png' >
                 </button>
             </div>
-       <div id="currentPlayerBadges" style="height:70%">
+
+       <div id="currentPlayerBadges" style="height:70%" class="animated">
 
         <img width='100%' src='images/Header Content/Badge.png' >
 
