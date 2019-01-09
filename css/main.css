@@ -1,7 +1,7 @@
 button {
    opacity: 0.6;
    transition: 0.5s ;
-   cursor: pointer; 
+   cursor: pointer;
 }
 button:hover {
   opacity: 1;
@@ -120,17 +120,32 @@ perspective: 1000px;
 }
 
 #currentPlayerBadges{
-
-
+height:100%;
+width: 100% ;
+padding-top: 6% ;
 display: none;
 position: absolute;
 z-index: 9991;
-top:20% ; 
-left: 25% ; 
+top:0 ;
+left: 0 ;
+background: url("../Div/Welcome/bg.PNG") fixed round ;
+background-size: cover;
+padding: 20px ;
 }
 
+#backBtn{
+margin: 10% ;
+background: transparent ;
+border:0px ;
+}
+
+img.finalBadges{
+  height: 200px ;
+  margin: 15px ;
+}
 #gameOver{
   background: url("../Div/Welcome/bg.PNG") fixed round ;
+  background-size: cover;
   height: 100%;
   width: 100%;
   padding-top: 10%;
@@ -142,10 +157,10 @@ left: 25% ;
 }
 
 #CongDiv button  {
-  width : 25% ; 
+  width : 25% ;
 }
 #gameOver button{
-  width : 30% ; 
+  width : 30% ;
 }
 #gameOver , #CongDiv{
   z-index: -150;

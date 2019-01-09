@@ -149,7 +149,7 @@
     <div id ="gameOver" class="text-center gameOver animated">
             <img src='Div/GameOver/Gameover.png'>
             <br/>
-           
+
             <button id='exitBtn' onclick="exit()"><img width='80%' src='images/Header Content/exit.png' >
             </button>
             <button id='playAgain1' onclick="gameOverUp(),startGame()"><img width='100%' src='Div/Select/playagain.png' >
@@ -169,11 +169,7 @@
                 </button>
             </div>
 
-       <div id="currentPlayerBadges" style="height:70%" class="animated">
 
-        <img width='100%' src='images/Header Content/Badge.png' >
-
-       </div>
     <div id="container">
             <img id='seaStar' src='images/Bonus/seaStar.png'></img>
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player1-left.gif" style="left: 48%;top:49%;position: relative" />
@@ -181,13 +177,16 @@
 
     <div id='currentPlayerBadges' class="text-center animated" style="display:none;">
       <img src='images/Header Content/Badge.png' id='finalBadgeImg'></img>
-      <div id='playerBadgesDiv'>
-          <img class='finalBadges' src = "./images/Badges/TimeBadge1.png"></img>
-          <img class='finalBadges' src = "./images/Badges/TimeBadge2.png"></img>
-          <img class='finalBadges' src = "./images/Badges/TimeBadge3.png"></img>
-          <img class='finalBadges' src = "./images/Badges/HighScore.png"></img>
-          <img class='finalBadges' src = "./images/Badges/Champion.png"></img>
-          <button id="badgesExit">Exit</button>
+      <div id='playerBadgesDiv text-center'>
+        <div class="row">
+          <img class='finalBadges col-md-2' src = "./images/Badges/TimeBadge1.png"></img>
+          <img class='finalBadges col-md-2' src = "./images/Badges/TimeBadge2.png"></img>
+          <img class='finalBadges col-md-2' src = "./images/Badges/TimeBadge3.png"></img>
+          <img class='finalBadges col-md-2' src = "./images/Badges/HighScore.png"></img>
+          <img class='finalBadges col-md-2' src = "./images/Badges/Champion.png"></img>
+        </div>
+        <button id='backBtn' onclick="hideBadges()"><img  src="Div/Welcome/back.png" >
+         </button>
       </div>
     </div>
 

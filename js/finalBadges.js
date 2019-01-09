@@ -5,7 +5,6 @@ let updateCurrentPlayerBadges=function(){
 
 
 let finalBadges=currentPlayerTempBadge;
-
 if (localStorage.getObj("highestScore").name==playerNa.value)
    finalBadges.push(true);
 else
@@ -25,9 +24,10 @@ for (let i=0;i<finalBadges.length;i++){
     finalBadgesArr[i].style.display="block";
    else
     finalBadgesArr[i].style.display="none";
-
-
 }
+
+
+console.log(finalBadges);
 
 
 
