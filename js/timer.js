@@ -1,7 +1,4 @@
 
-
-
-
 let timer = function (){
     globalTimeInSeconds++;
     if (second < 59)

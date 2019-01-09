@@ -1,8 +1,4 @@
 
-let setPlayerNumber = function (num) {
-    playerNumber = num;
-}
-
 container.onmousemove = function (event) {
 
     containerBoundingRect = container.getBoundingClientRect();
@@ -38,6 +34,15 @@ document.onkeydown = function (event) {
     if (event.key === ' ' || event.key === 'Spacebar')
         event.preventDefault();
 
+};
+
+
+btnName.onclick = function () {
+ 
+    if (playerNa.value != "") {
+        
+        nameEnt.classList.add("fadeOutUp");
+    }
 };
 
 let UpdateGameGrid = function () {
@@ -122,6 +127,15 @@ let CheckEndOfGame = function () {
 
     }
 
+};
+
+
+let setPlayerNumber = function (num) {
+    playerNumber = num;
+};
+
+let exit = function () {
+    location.reload();
 };
 
 backgroundSound = setInterval(playUnderWaterSound, 6500);

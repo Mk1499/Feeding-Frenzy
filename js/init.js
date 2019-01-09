@@ -29,6 +29,7 @@ let interval;
 let specialFishInterval;
 let backgroundSound;
 let playerNumber;
+let previousState;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 150, 300, 450, 600];
 let fishImages = {
