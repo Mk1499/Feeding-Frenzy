@@ -119,6 +119,14 @@ perspective: 1000px;
 }
 }
 
+#currentPlayerBadges{
+
+
+display: none;
+position: absolute;
+z-index: 9991;
+}
+
 #gameOver{
   background: url("../Div/Welcome/bg.PNG") fixed round ;
   height: 100%;
