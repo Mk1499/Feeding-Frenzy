@@ -1,3 +1,12 @@
+button {
+   opacity: 0.6;
+   transition: 0.5s ;
+   cursor: pointer; 
+}
+button:hover {
+  opacity: 1;
+}
+
 #load{
     position: fixed;
     top: 0 ;
