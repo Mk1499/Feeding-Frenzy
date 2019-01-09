@@ -189,54 +189,17 @@ let checkForTimeBadges = function () {
 let checkForFinalBadges = function () {
 
 
-  //let deserveHighScoreBadge=true;
-  //let deserveHighFinishLives=false;
-
-  // Getting all players high scores
-  let highScores = [];
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key))
-      highScores.push(localStorage.getObj(key).scoreing);
-  }
-
-  // Getting all players finsish case number of numberOfLives
-  let playersFinishNumberOfLives = [];
-  for (let key2 in localStorage) {
-    if (localStorage.hasOwnProperty(key2))
-      playersFinishNumberOfLives.push(localStorage.getObj(key2).numberOfLives);
-  }
-
-  function checkLives(playersLives) {
-    return playersLives < lives;
-  }
-
-
-  if (lives === 0 && highScores.every(checkScore))  // Gmae over case check only for score
+  if(lives===0 && score>localStorage.getObj("highestScore").value)  // Gmae over case check only for score
   {
+    localStorage.setObj("highestScore",{name:playerNa.value,value:score});
     showBadgeImage("scoreBadge");
   }
 
 
-  if (gameCompleteFlag && playersFinishNumberOfLives.every(checkLives)) {
+  if(gameCompleteFlag && lives>localStorage.getObj("highestNumLives").value )
+  {
+    localStorage.setObj("highestNumLives",{name:playerNa.value,value:lives});
     showBadgeImage("livesBadge");
   }
-
-
-
-
-if(lives===0 && score>localStorage.getObj("highestScore").value)  // Gmae over case check only for score
-{
-  localStorage.setObj("highestScore",{name:playerNa.value,value:score});
-  showBadgeImage("scoreBadge");
-}
-
-
-if(gameCompleteFlag && lives>localStorage.getObj("highestNumLives").value )
-{
-  localStorage.setObj("highestNumLives",{name:playerNa.value,value:lives});
-  showBadgeImage("livesBadge");
-}
-
-
 
 }
