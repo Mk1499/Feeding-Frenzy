@@ -105,7 +105,8 @@ let CheckEndOfGame = function () {
         clearInterval(interval);
         clearInterval(t);
         clearInterval(backgroundSound);
-        displayCong() ;
+       
+        setTimeout(displayCong,2000) ;
         fishPlayer.style.display = "none";
         gameCompleteFlag=true;
         checkForFinalBadges();

@@ -65,11 +65,12 @@ input.form-control::placeholder{
 #start{
     position: fixed;
     top: 0 ;
-    background: url("../Div/Welcome/bg.PNG") fixed no-repeat ;
+    background: url("../Div/Welcome/bg.PNG") fixed round;
     background-size: cover ;
     color: #fff ;
     z-index: 666;
     height: 100%;
+    width: 100%;
     animation-delay: 0.5s ;
     animation-duration: 2s;
 }
@@ -79,6 +80,17 @@ input.form-control::placeholder{
     width: 40%;
 
 
+}
+#gameOver{
+  background: url("../Div/Welcome/bg.PNG") fixed round ;
+  height: 100%;
+  width: 100%;
+  padding-top: 10%;
+}
+#CongDiv{
+  background: url("../Div/Welcome/bg.PNG") fixed round ;
+  height: 100%;
+  width: 100%;
 }
 #gameOver , #CongDiv{
   z-index: -150;

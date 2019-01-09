@@ -7,8 +7,8 @@ let displayCong = function () {
     fishPlayer.style.display = "none" ;
     board.style.display = "none" ;
 
-
 }
+
 let congUp = function () {
     congDiv.classList.remove("bounceInDown");
     congDiv.classList.add("bounceOutUp");
