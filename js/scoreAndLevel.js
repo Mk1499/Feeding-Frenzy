@@ -35,7 +35,7 @@ let scoreAndLevel = function () {
       backgroundWebm.src = "videos/background-" + level + ".webm";
       backgroundVideo.load();
       playLevelUpSound();
-    
+
     }
 
       for (let i = 0; i < fishEnemiesList.length; i++)
@@ -47,7 +47,7 @@ let scoreAndLevel = function () {
       randomMotionTimerY = [];
       randomMotionCompletionY = [];
       //addNewEnemyFish();
-    
+
   }
 
 };
@@ -87,41 +87,42 @@ let showLevelUpNotificationImage = function () {
 
 let showBadgeImage = function (badgeType) {
 
-  let badge = document.createElement("img");
-
-
-  if (badgeType === "Time1") {
+    let badge = document.createElement("img");
+if (badgeType==="Time1"){
     badge.src = "./images/Badges/TimeBadge1.png";
-    badgrArr[0].src = 'images/Badges/TimeBadge1.png';
-  }
-  else if (badgeType === "Time2") {
+    badgrArr[0].style.display="block";
+    currentPlayerTempBadge[0]=true;
+}
+else if (badgeType==="Time2") {
     badge.src = "./images/Badges/TimeBadge2.png";
-    badgrArr[1].src = 'images/Badges/TimeBadge2.png';
-  }
-  else if (badgeType === "Time3") {
+    badgrArr[1].style.display="block";
+    currentPlayerTempBadge[1]=true;
+}
+else if (badgeType==="Time3") {
     badge.src = "./images/Badges/TimeBadge3.png";
-    badgrArr[2].src = 'images/Badges/TimeBadge3.png';
-  }
-  else if (badgeType === "scoreBadge") {
-    badge.src = "./images/Badges/HighScore.png";
-    badgrArr[3].src = 'images/Badges/HighScore.png';
-  }
-  else if (badgeType === "livesBadge") {
-    badge.src = "./images/Badges/Champion.png";
-    badgrArr[4].src = 'images/Badges/Champion.png';
-  }
+    badgrArr[2].style.display="block";
+    currentPlayerTempBadge[2]=true;
+}
+else if(badgeType==="scoreBadge"){
+  badge.src = "./images/Badges/HighScore.png";
+  badgrArr[3].style.display="block";
+}
+else if(badgeType==="livesBadge"){
+  badge.src = "./images/Badges/Champion.png";
+  badgrArr[4].style.display="block";
+}
 
 
-  badge.height = 200;
-  badge.width = 180;
-  badge.style.position = "absolute";
-  badge.style.left = window.innerWidth / 4 - 90 + "px";
-  badge.style.top = window.innerHeight / 4 - 100 + "px";
-  badge.style.border = "medium solid black"
+    badge.height = 200;
+    badge.width = 180;
+    badge.style.position = "absolute";
+    badge.style.left = window.innerWidth/4 - 90 + "px";
+    badge.style.top = window.innerHeight/4 - 100 + "px";
+    badge.style.border="medium solid black"
 
 
-  container.appendChild(badge);
-  setTimeout(() => container.removeChild(badge), 4000);
+    container.appendChild(badge);
+    setTimeout(() => container.removeChild(badge), 4000);
 
 };
 
@@ -189,47 +190,17 @@ let checkForTimeBadges = function () {
 let checkForFinalBadges = function () {
 
 
-  //let deserveHighScoreBadge=true;
-  //let deserveHighFinishLives=false;
-
-  // Getting all players high scores
-  let highScores = [];
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key))
-      highScores.push(localStorage.getObj(key).scoreing);
-  }
-
-  // Getting all players finsish case number of numberOfLives
-  let playersFinishNumberOfLives = [];
-  for (let key2 in localStorage) {
-    if (localStorage.hasOwnProperty(key2))
-      playersFinishNumberOfLives.push(localStorage.getObj(key2).numberOfLives);
-  }
-
-
-  function checkScore(playersScores) {
-    console.log("Checking score");
-    return playersScores < score;
-  }
-
-  function checkLives(playersLives) {
-    return playersLives < lives;
-  }
-
-
-  if (lives === 0 && highScores.every(checkScore))  // Gmae over case check only for score
+  if(lives===0 && score>localStorage.getObj("highestScore").value)  // Gmae over case check only for score
   {
+    localStorage.setObj("highestScore",{name:playerNa.value,value:score});
     showBadgeImage("scoreBadge");
   }
 
 
-  if (gameCompleteFlag && playersFinishNumberOfLives.every(checkLives)) {
+  if(gameCompleteFlag && lives>localStorage.getObj("highestNumLives").value )
+  {
+    localStorage.setObj("highestNumLives",{name:playerNa.value,value:lives});
     showBadgeImage("livesBadge");
   }
-
-
-
-
-
 
 }

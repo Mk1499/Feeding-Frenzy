@@ -6,9 +6,9 @@ let seaStarMotion=function(){
         seaStarTimer=0;
         seaStarPositionX=Math.floor(Math.random() * parseInt(window.innerWidth));
         seaStarMovingFlag=true;
-  
+
     }
-  
+
     if(seaStarMovingFlag){
         seaStarObj.style.display='inline-block';
         seaStarObj.style.left=seaStarPositionX+'px';
@@ -22,15 +22,15 @@ let seaStarMotion=function(){
           seaStarPositionY=0;
           seaStarTimerMax=Math.floor(Math.random() * 501)+500;
         }
-  
+
     }
   }
-  
-  
-  
+
+
+
   let bonusAdd=function(){
-  
-      console.log("Done");
+
+    
       seaStarNum++;
       seaStarObj.style.display='none';
       seaStarObj.style.top=0+'px';
@@ -38,4 +38,3 @@ let seaStarMotion=function(){
       seaStarPositionY=0;
       seaStarTimerMax=Math.floor(Math.random() * 501)+500;
   };
-  

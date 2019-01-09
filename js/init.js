@@ -40,10 +40,12 @@ let fishImages = {
 }
 let playedBefore1 = false;
 let playedBefore2 = false;
-let second = 0;
-let minutes = 0;
-let hours = 0;
-let globalTimeInSeconds = 0;
+let second = 0 ;
+let minutes = 0 ;
+let hours = 0 ;
+let globalTimeInSeconds=0;
+let currentPlayerTempBadge=[false,false,false];
+
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -55,7 +57,7 @@ let underWaterSound = document.getElementById("underWater");
 let sizeUpSound = document.getElementById("sizeUp");
 let GOSound = document.getElementById("gameOverSound");
 let badgeBTN = document.getElementById("badgeBtn") ;
-let badgeDiv = document.getElementById("currentPlayerBadges") ;  
+let badgeDiv = document.getElementById("currentPlayerBadges") ;
 let gameOverDiv = document.getElementById("gameOver");
 let congDiv = document.getElementById("CongDiv");
 let congSound = document.getElementById("congSound");
@@ -87,6 +89,7 @@ let badgrArr = document.getElementsByClassName('bad');
 
 let load = document.getElementById("load");
 let playerNa = document.getElementById("nameEnter");
-let btnName = document.getElementById("btnGame");
-let nameEnt = document.getElementById("EnterNameSec");
-let select = document.getElementById("select"); 
+
+let btnName=document.getElementById("btnGame");
+let nameEnt=document.getElementById("EnterNameSec");
+let finalBadgesArr=document.getElementsByClassName("finalBadges");
