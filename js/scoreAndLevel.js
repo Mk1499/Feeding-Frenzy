@@ -80,27 +80,28 @@ let showLevelUpNotificationImage = function () {
 let showBadgeImage = function (badgeType) {
 
     let badge = document.createElement("img");
-
-
 if (badgeType==="Time1"){
     badge.src = "./images/Badges/TimeBadge1.png";
-    badgrArr[0].src='images/Badges/TimeBadge1.png';
+    badgrArr[0].style.display="block";
+    currentPlayerTempBadge[0]=true;
 }
 else if (badgeType==="Time2") {
-  badge.src = "./images/Badges/TimeBadge2.png";
-  badgrArr[1].src='images/Badges/TimeBadge2.png';
+    badge.src = "./images/Badges/TimeBadge2.png";
+    badgrArr[1].style.display="block";
+    currentPlayerTempBadge[1]=true;
 }
 else if (badgeType==="Time3") {
-  badge.src = "./images/Badges/TimeBadge3.png";
-  badgrArr[2].src='images/Badges/TimeBadge3.png';
+    badge.src = "./images/Badges/TimeBadge3.png";
+    badgrArr[2].style.display="block";
+    currentPlayerTempBadge[2]=true;
 }
 else if(badgeType==="scoreBadge"){
   badge.src = "./images/Badges/HighScore.png";
-  badgrArr[3].src='images/Badges/HighScore.png';
+  badgrArr[3].style.display="block";
 }
 else if(badgeType==="livesBadge"){
   badge.src = "./images/Badges/Champion.png";
-  badgrArr[4].src='images/Badges/Champion.png';
+  badgrArr[4].style.display="block";
 }
 
 
@@ -198,7 +199,7 @@ for(let key2 in localStorage){
       playersFinishNumberOfLives.push(localStorage.getObj(key2).numberOfLives);
 }
 
-
+/*
 function checkScore(playersScores) {
   console.log("Checking score");
   return playersScores < score;
@@ -207,6 +208,7 @@ function checkScore(playersScores) {
 function checkLives(playersLives) {
   return playersLives < lives;
 }
+
 
 
 if(lives===0 && highScores.every(checkScore))  // Gmae over case check only for score
@@ -220,8 +222,21 @@ if(gameCompleteFlag &&  playersFinishNumberOfLives.every(checkLives))
   showBadgeImage("livesBadge");
 }
 
+*/
 
 
+if(lives===0 && score>localStorage.getObj("highestScore").value)  // Gmae over case check only for score
+{
+  localStorage.setObj("highestScore",{name:playerNa.value,value:score});
+  showBadgeImage("scoreBadge");
+}
+
+
+if(gameCompleteFlag && lives>localStorage.getObj("highestNumLives").value )
+{
+  localStorage.setObj("highestNumLives",{name:playerNa.value,value:lives});
+  showBadgeImage("livesBadge");
+}
 
 
 

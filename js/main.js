@@ -58,8 +58,13 @@ let startGame = function () {
 if (localStorage.getObj(playerNa.value) ===null)
    localStorage.setObj(playerNa.value,{scoreing:0,level1time:4000,level2time:4000,level3time:4000,numberOfLives:0});
 
+   if (localStorage.getObj("highestScore") ===null)
+      localStorage.setObj("highestScore",{name:"dummyUser",value:0});
 
-previousState=localStorage.getObj(playerNa.value);
+   if (localStorage.getObj("highestNumLives") ===null)
+      localStorage.setObj("highestNumLives",{name:"dummyUser",value:0});
+
+   previousState=localStorage.getObj(playerNa.value);
 
 
     level = 1;
@@ -74,9 +79,11 @@ previousState=localStorage.getObj(playerNa.value);
     currentPlayerLevel3Time=null;
     currentPlayerHeighestScore=null;
     currentPlayerFinishNumberOfLives=null;
+    currentPlayerTempBadge=[false,false,false];
     fishPlayer.src = "./images/Characters/player" + playerNumber + "-right.gif";
     backgroundWebm.src = "videos/background.webm";
     backgroundVideo.load();
+    removeBadgesFromDashBoard();
     showLevelUpNotificationImage();
     interval = setInterval(UpdateGameGrid, 20);
     t = setInterval(timer,1000) ;
@@ -91,10 +98,8 @@ let CheckGameOver = function () {
         clearInterval(t);
         checkForFinalBadges();
         updateLocalStorage();
-
-
+        updateCurrentPlayerBadges();
     }
-
 };
 
 
@@ -110,9 +115,7 @@ let CheckEndOfGame = function () {
         gameCompleteFlag=true;
         checkForFinalBadges();
         updateLocalStorage();
-
-
-
+        updateCurrentPlayerBadges();
     }
 
 };

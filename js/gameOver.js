@@ -15,7 +15,7 @@ let gameOverUp = function () {
     fishPlayer.style.display = "block" ;
     board.style.display = "block" ;
     setTimeout(function () {
-        
+
         gameOverDiv.style.display = "none";
         gameOverDiv.style.zIndex = 0;
     }, 1000)

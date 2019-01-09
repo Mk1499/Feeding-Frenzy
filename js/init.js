@@ -43,6 +43,8 @@ let second = 0 ;
 let minutes = 0 ;
 let hours = 0 ;
 let globalTimeInSeconds=0;
+let currentPlayerTempBadge=[false,false,false];
+
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
@@ -86,3 +88,6 @@ let lod = document.getElementById("load");
 let playerNa = document.getElementById("nameEnter");
 let btnName=document.getElementById("btnGame");
 let nameEnt=document.getElementById("EnterNameSec");
+
+
+let finalBadgesArr=document.getElementsByClassName("finalBadges");

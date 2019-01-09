@@ -224,6 +224,8 @@ width:50px;
 
 .bad{
  height:100%;
- width:16.66%;
+ width:19%;
+ margin-left: 1%;
  float:right;
+ border: solid 0.5px SandyBrown;
 }

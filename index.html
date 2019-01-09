@@ -133,13 +133,11 @@
         <div id='badgeDiv'>
             <img src='images/Header Content/Badge.png' id='badgeImg'></img>
             <div id='playerBadgesDiv'>
-                <img class='bad'></img>
-                <img class='bad'></img>
-                <img class='bad'></img>
-                <img class='bad'></img>
-                <img class='bad'></img>
-                <img class='bad'></img>
-
+                <img class='bad' src = "./images/Badges/TimeBadge1.png"></img>
+                <img class='bad' src = "./images/Badges/TimeBadge2.png"></img>
+                <img class='bad' src = "./images/Badges/TimeBadge3.png"></img>
+                <img class='bad' src = "./images/Badges/HighScore.png"></img>
+                <img class='bad' src = "./images/Badges/Champion.png"></img>
             </div>
           </div>
 
@@ -162,6 +160,18 @@
     <div id="container">
             <img id='seaStar' src='images/Bonus/seaStar.png'></img>
         <img id="fishPlayer" width=100 height=60 src="./images/Characters/player1-left.gif" style="left: 48%;top:49%;position: relative" />
+    </div>
+
+    <div id='currentPlayerBadges' class="text-center animated" style="display:none;">
+      <img src='images/Header Content/Badge.png' id='finalBadgeImg'></img>
+      <div id='playerBadgesDiv'>
+          <img class='finalBadges' src = "./images/Badges/TimeBadge1.png"></img>
+          <img class='finalBadges' src = "./images/Badges/TimeBadge2.png"></img>
+          <img class='finalBadges' src = "./images/Badges/TimeBadge3.png"></img>
+          <img class='finalBadges' src = "./images/Badges/HighScore.png"></img>
+          <img class='finalBadges' src = "./images/Badges/Champion.png"></img>
+          <button id="badgesExit">Exit</button>
+      </div>
     </div>
 
 
@@ -190,6 +200,7 @@
     <script src="js/randomMotion.js"></script>
     <script src="js/seaStar.js"></script>
     <script src="js/localStorageFunctions.js"></script>
+    <script src="js/finalBadges.js"></script>
     <script src="js/main.js"></script>
 </body>
 

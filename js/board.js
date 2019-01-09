@@ -35,3 +35,12 @@ let adjustBoard = function (score, level, charID, lives,seaStarNum) {
   //Adjusting seastar counter
   seaStarImgNum.src='images/Characters/numbers/' + (seaStarNum % 6) + '-blue.png';
 }
+
+
+let removeBadgesFromDashBoard=function(){
+
+for (let i=0;i<badgrArr.length;i++)
+    badgrArr[i].style.display="none";
+
+
+}
