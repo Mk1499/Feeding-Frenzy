@@ -135,7 +135,7 @@ perspective: 1000px;
   width : 25% ; 
 }
 #gameOver button{
-  width : 50% ; 
+  width : 30% ; 
 }
 #gameOver , #CongDiv{
   z-index: -150;
