@@ -1,7 +1,7 @@
 
 let loaderOut = function () {
 
-  lod.classList.add("fadeOutUp");
+  load.classList.add("fadeOutUp");
 
 }
 
@@ -14,28 +14,12 @@ document.onreadystatechange = function () {
   }
 
 }
-
-
-
-
 
 Storage.prototype.setObj = function(key, obj) {
   return this.setItem(key, JSON.stringify(obj))
 }
 Storage.prototype.getObj = function(key) {
   return JSON.parse(this.getItem(key))
-}
-
-
-
-document.onreadystatechange = function () {
-
-  if (document.readyState === 'complete') {
-
-    loaderOut();
-
-  }
-
 }
 
 btnName.addEventListener('click',function(){

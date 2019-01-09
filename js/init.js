@@ -4,25 +4,25 @@ let level = 1;
 let lives = 3;
 let foodTimer = 0;
 
-let currentPlayerLevel1Time=null;
-let currentPlayerLevel2Time=null;
-let currentPlayerLevel3Time=null;
-let currentPlayerHeighestScore=null;
-let currentPlayerFinishNumberOfLives=null;
-let gameCompleteFlag=false;
+let currentPlayerLevel1Time = null;
+let currentPlayerLevel2Time = null;
+let currentPlayerLevel3Time = null;
+let currentPlayerHeighestScore = null;
+let currentPlayerFinishNumberOfLives = null;
+let gameCompleteFlag = false;
 
 
-let randomMotionTimer=[];
-let randomMotionCompletion=[];
-let randomMotionTimerY=[];
-let randomMotionCompletionY=[];
-let verticalDirections=["top","down"];
-let seaStarTimer=0;
-let seaStarTimerMax=Math.floor(Math.random() * 501)+500;
+let randomMotionTimer = [];
+let randomMotionCompletion = [];
+let randomMotionTimerY = [];
+let randomMotionCompletionY = [];
+let verticalDirections = ["top", "down"];
+let seaStarTimer = 0;
+let seaStarTimerMax = Math.floor(Math.random() * 501) + 500;
 let seaStarPositionX;
-let seaStarPositionY=0;
-let seaStarMovingFlag=false;
-let seaStarNum=0;
+let seaStarPositionY = 0;
+let seaStarMovingFlag = false;
+let seaStarNum = 0;
 let gameover = false;
 let specialFlag = 1;
 let interval;
@@ -31,22 +31,22 @@ let backgroundSound;
 let playerNumber;
 let fishEnemiesList = [];
 let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
-let fishImages={
-    level1:["whiteFish.gif","gray_fish.gif","tuna.gif","yellowFish.gif"],
-    level2:["gray_fish.gif","tuna.gif","yellowFish.gif","blueFish.gif"],
-    level3:["tuna.gif","yellowFish.gif","blueFish.gif","shark.gif"],
-    weight:[0.8,1.1,1.4,1.7]
+let fishImages = {
+    level1: ["whiteFish.gif", "gray_fish.gif", "tuna.gif", "yellowFish.gif"],
+    level2: ["gray_fish.gif", "tuna.gif", "yellowFish.gif", "blueFish.gif"],
+    level3: ["tuna.gif", "yellowFish.gif", "blueFish.gif", "shark.gif"],
+    weight: [0.8, 1.1, 1.4, 1.7]
 }
 let playedBefore1 = false;
 let playedBefore2 = false;
-let second = 0 ;
-let minutes = 0 ;
-let hours = 0 ;
-let globalTimeInSeconds=0;
+let second = 0;
+let minutes = 0;
+let hours = 0;
+let globalTimeInSeconds = 0;
 
 let fishPlayer = document.getElementById("fishPlayer");
 let container = document.getElementById("container");
-let board=document.getElementById("board");
+let board = document.getElementById("board");
 let eatSound = document.getElementById("eat");
 let dyingSound = document.getElementById("die");
 let levelUpSound = document.getElementById("level");
@@ -71,7 +71,7 @@ let growthDiv = document.getElementById('growthDiv');
 let liveDiv = document.getElementById('liveDiv');
 let levelDiv = document.getElementById('levelDiv');
 let seaStarObj = document.getElementById('seaStar');
-let seaStarImgNum=document.getElementById('seaStarNum');
+let seaStarImgNum = document.getElementById('seaStarNum');
 let timeDiv = document.getElementById('timer');
 let secondNumArr = document.getElementsByClassName('secondNum');
 let minNumArr = document.getElementsByClassName('minNum');
@@ -80,9 +80,10 @@ let backgroundVideo = document.getElementById("backgroundVideo");
 let backgroundWebm = document.getElementById("backgroundWebm");
 let containerBoundingRect = container.getBoundingClientRect();
 let specialFish;
-let badgrArr=document.getElementsByClassName('bad');
+let badgrArr = document.getElementsByClassName('bad');
 
-let lod = document.getElementById("load");
+let load = document.getElementById("load");
 let playerNa = document.getElementById("nameEnter");
-let btnName=document.getElementById("btnGame");
-let nameEnt=document.getElementById("EnterNameSec");
+let btnName = document.getElementById("btnGame");
+let nameEnt = document.getElementById("EnterNameSec");
+let select = document.getElementById("select"); 

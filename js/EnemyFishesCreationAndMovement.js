@@ -1,7 +1,7 @@
 let createEnemyFishes = function () {
 
     foodTimer++;
-    if (foodTimer > 100 && fishEnemiesList.length <= 7) {
+    if (foodTimer > 100/(level*0.9) && fishEnemiesList.length <= 9) {
 
         let rand = Math.floor(Math.random() * fishImages["level"+level].length);
 
