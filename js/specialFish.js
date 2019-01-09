@@ -39,10 +39,10 @@ let detectCollisionBetweenPlayerAndSpecialFish = function () {
 
         for (let i = 0; i < fishEnemiesList.length; i++) {
 
-            fishEnemiesList[i].height = 24;
-            fishEnemiesList[i].width = 40;
-            fishEnemiesList[i].element.height = 24;
-            fishEnemiesList[i].element.width = 40;
+            fishEnemiesList[i].height = 30;
+            fishEnemiesList[i].width = 50;
+            fishEnemiesList[i].element.height = 30;
+            fishEnemiesList[i].element.width = 50;
 
         }
 

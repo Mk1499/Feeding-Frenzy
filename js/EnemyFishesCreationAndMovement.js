@@ -1,7 +1,7 @@
 let createEnemyFishes = function () {
 
     foodTimer++;
-    if (foodTimer > 100 && fishEnemiesList.length <= 7) {
+    if (foodTimer > 100/(level*0.9) && fishEnemiesList.length <= 9) {
 
         let rand = Math.floor(Math.random() * fishImages["level"+level].length);
 
@@ -36,7 +36,7 @@ let moveEnemyFishes = function () {
         }
         if (fishEnemiesList[i].x < 0 - fishEnemiesList[i].width
             || fishEnemiesList[i].x > window.innerWidth + fishEnemiesList[i].width
-          ||   fishEnemiesList[i].y >containerBoundingRect.height) {
+            || fishEnemiesList[i].y > window.innerHeight) {
             container.removeChild(fishEnemiesList[i].element);
             fishEnemiesList.splice(i, 1);
             removeFishRandomMotion(i);
