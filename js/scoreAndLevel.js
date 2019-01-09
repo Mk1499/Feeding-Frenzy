@@ -221,7 +221,7 @@ let checkForFinalBadges = function () {
     showBadgeImage("livesBadge");
   }
 
-*/
+
 
 
 if(lives===0 && score>localStorage.getObj("highestScore").value)  // Gmae over case check only for score
