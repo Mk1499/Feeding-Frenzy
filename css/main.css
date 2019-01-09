@@ -90,6 +90,13 @@ input.form-control::placeholder{
   height: 100%;
   width: 100%;
 }
+
+#CongDiv button  {
+  width : 25% ; 
+}
+#gameOver button{
+  width : 50% ; 
+}
 #gameOver , #CongDiv{
   z-index: -150;
   display: none ;
