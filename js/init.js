@@ -30,7 +30,7 @@ let specialFishInterval;
 let backgroundSound;
 let playerNumber;
 let fishEnemiesList = [];
-let fishEntryPositions = [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700];
+let fishEntryPositions = [0, 150, 300, 450, 600];
 let fishImages = {
     level1: ["whiteFish.gif", "gray_fish.gif", "tuna.gif", "yellowFish.gif"],
     level2: ["gray_fish.gif", "tuna.gif", "yellowFish.gif", "blueFish.gif"],
