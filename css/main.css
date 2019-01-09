@@ -76,9 +76,9 @@ input.form-control::placeholder{
     background: transparent ;
     border: 0px;
     width: 40%;
-
-
+    cursor: pointer;
 }
+
 #gameOver{
   background: url("../Div/Welcome/bg.PNG") fixed round ;
   height: 100%;
